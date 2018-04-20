@@ -1,0 +1,42 @@
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+                <a _ngcontent-c4="" href="#" class="navbar-brand grids-logo" >
+                        <img _ngcontent-c4="" class="logo" src="/assets/images/logos/logo-white.svg">
+                </a>
+                <h3>Environment Management</h3>
+        </div>
+
+        <!-- Sidebar Links -->
+        <ul class="list-unstyled components">
+            <li (click)="back()">back to organization</li>     
+            <li (click)="changeContent(0)">Profile</li>     
+            <li (click)="changeContent(1)">Users</li>            
+            <li (click)="changeContent(2)">Contracts</li>
+            <li (click)="changeContent(3)">Change Requests</li>
+        </ul>
+
+    </nav>
+    <div *ngIf="conditions[0]"   [@fadeInOut]  class = "profileContent">
+        <app-environmen-home></app-environmen-home>
+    </div>
+    <div *ngIf="conditions[1]"  [@fadeInOut] class = "usersContent">
+        <app-user-list></app-user-list>
+    </div>
+    <div *ngIf="conditions[2]"  [@fadeInOut] class = "contractsContent">
+        <app-contract></app-contract>
+    </div>
+    <div *ngIf="conditions[3]"  [@fadeInOut] class = "requestContent">
+        <app-requests></app-requests>
+    </div>
+
+
+    
+</div>  

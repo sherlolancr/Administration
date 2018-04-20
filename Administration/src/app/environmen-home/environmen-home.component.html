@@ -1,0 +1,47 @@
+<div class = "wrap">
+  <div class = "description">
+    <div class = "company_name">
+      <h1>Front End</h1>
+    </div>
+    <div class = "main_content">
+      <div class = "company_information">
+          <dl>
+              <dt>Number of vms :</dt>
+              <dd>13</dd>
+              <dt>Number of Tiers :</dt>
+              <dd>3</dd>
+              <dt>Number of Users :</dt>
+              <dd>4</dd>
+              <dt>Total Cost :</dt>
+              <dd>£3000</dd>
+              <dt>Created at :</dt>
+              <dd>16th April 2017</dd>
+              <dt>Contract ended at : </dt>
+              <dd>16th April 2018</dd>
+            </dl>
+            
+      </div>
+      
+    </div>
+
+    <div class = "Activity_Log">
+        <div class = "log_title">
+          <h1>Activity Log</h1>
+        </div>
+        <div class = "log_content">
+          <ul class="log_list">
+            <li *ngFor="let log of logs">
+                {{ log }}
+            </li>
+          </ul>
+        </div>
+
+          
+    </div>
+    
+  </div> 
+  <div class = "buttons">
+      <button type="button" class="btn btn-primary btn-block">Add SLA</button>
+      <button type="button" class="btn btn-primary btn-block">Manage</button>
+  </div> 
+</div>

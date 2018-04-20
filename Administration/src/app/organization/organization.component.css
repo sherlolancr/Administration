@@ -1,0 +1,94 @@
+#custom-search-input {
+    margin:0;
+    margin-top: 50px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#1f3e69;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+.table_container::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+.table_container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.table_containerbody::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 0, 0);
+  outline: 1px solid rgb(12, 12, 12);
+}
+body {
+    padding-top: 80px; 
+ }
+ .starter-template {
+     padding: 3rem 1.5rem;
+     text-align: center;
+     
+ }
+ .table{
+     width:100%;
+     height: 500px;
+     text-align:center;
+ }
+ .table_container{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+     width:60%;
+     height: 100%;
+     overflow: auto;
+    border:1px solid black;
+     margin-left:370px;
+     margin-top:50px;
+}
+.table_header{
+   
+    background-color: #1f3e69;
+    z-index: -100;
+    color: aliceblue;
+    font-family: 'Open Sans', sans-serif;
+}
+.table_container mat-cell{
+    color: #757575;
+    cursor: pointer;
+    text-align: left;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+/*.table_container mat-table :hover{
+    background-color: rgb(180, 180, 180);
+    cursor: pointer;
+}*/
+/*.table_header :hover{
+    background-color: #1f3e69;
+}*/
