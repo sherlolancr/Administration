@@ -33,6 +33,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeRequestComponent } from './home-request/home-request.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { HomeRequestComponent } from './home-request/home-request.component';
     MatSidenavModule,
     MatTabsModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

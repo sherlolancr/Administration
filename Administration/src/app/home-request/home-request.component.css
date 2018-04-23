@@ -1,0 +1,137 @@
+.requests{
+    width: 100%;
+    margin-top:0;
+    height: 50%;
+}
+.request_container{
+    height: 100%;
+    width: 60%;
+    background: azure;
+    margin-left:20%;
+    display: block;
+}
+
+.menu {
+    background: #a9d8ff;
+    width: 100%;
+    height: 50px;
+    margin-top:40px;
+  }
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: block;
+    zoom: 1;
+  }
+  .uls{
+      display: block;
+  }
+  .menu ul:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  .menu ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  .menu.align-right ul li {
+    float: right;
+  }
+  .menu.align-center ul {
+    text-align: center;
+  }
+  .menu ul li p {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 15px 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    position: relative;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -ms-transition: color .25s;
+    -o-transition: color .25s;
+    transition: color .25s;
+  }
+  .menu ul li p:hover {
+    color: #4d9ffd;
+    cursor: pointer;
+}
+  .menu ul li p:hover:before {
+    width: 100%;
+  }
+  .menu ul li p:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -3px;
+    top: 19px;
+    height: 6px;
+    width: 6px;
+    background: #ffffff;
+    opacity: .5;
+  }
+  .menu ul li p:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background: #ffffff;
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    -ms-transition: width .25s;
+    -o-transition: width .25s;
+    transition: width .25s;
+  }
+  .menu.align-right li.last{
+     color: rgb(0, 183, 255);
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu ul li {
+      float: none;
+      display: block;
+    }
+    .menu ul li p {
+      width: 100%;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgb(255, 255, 255);
+    }
+    .menu ul li p:after {
+      display: none;
+    }
+    .menu ul li p:before {
+      display: none;
+    }
+  }
+.requestList{
+    height: 90%;
+    width: 100%;
+    margin-top:-50px;
+    display: block;
+}
+  
+.table_content{
+  display: block;
+
+  width: 100%;
+  height: 100%;
+} 
+.list{
+  width:100%;
+}

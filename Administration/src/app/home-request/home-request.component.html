@@ -1,3 +1,23 @@
-<p>
-  home-request works!
-</p>
+<div class = "requests">
+  <div class = "request_container">
+    <div class='menu'>
+      <div class='uls'>
+        <ul>
+            <li (click)="newRequest()"><p>Contract Request</p></li>
+            <li (click)="changeRequest()"><p>Change Request</p></li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf = "changeRequestSelected" [@flyInOut] class = "requestList">
+        <div class = "list">
+            <app-table-format [table]="table" [category]="'environment'"  class="table_content"></app-table-format>
+        </div>  
+        
+    </div>
+    <div *ngIf = "newRequestSelected"  [@flyInOut] class = "requestList">
+        <div class = "list">
+            <app-table-format [table]="table" [category]="'environment'"  class="table_content"></app-table-format>
+        </div>  
+    </div>
+  </div>
+</div>

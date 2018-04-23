@@ -10,7 +10,6 @@ import { ELEMENT_DATA } from '../TestData/TestData';
   styleUrls: ['./environments.component.css']
 })
 export class EnvironmentsComponent implements OnInit {
-
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
   table : Table

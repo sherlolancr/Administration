@@ -129,9 +129,9 @@
 }
 .environment_content{
     height: 100%;
-    width: 60%;
-    margin-right:100px;
+    width: 80%;
     display: block;
+    margin-left:10%;
 }
 .list_title{
     z-index: -40;
