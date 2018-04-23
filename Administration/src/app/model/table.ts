@@ -2,6 +2,7 @@ import { MatTableDataSource } from "@angular/material";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import {Element} from "../TestData/TestData";
 import { RouterLink, Router } from "@angular/router";
+import { Id_data } from "./id_data";
 
 export class Table{
   displayedColumns : string[]
@@ -11,16 +12,19 @@ export class Table{
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);
       this.displayedColumns = displayedColumns;
     }
-    selectRow(row,category):void{
-      let id:number ;
-      id = row.position;
-      console.log(row);
+    selectRow(id_data:Id_data,category):void{
+      let id ;
         if (category == "organization"){
-          
+          id = id_data.getOrganizationId();
           this.router.navigate(['organizationProfile/'+id]);
         }
         else if(category == "environment"){
-          this.router.navigate(['environmentProfile/'+id]);
+          let eid = id_data.getEnvironmentId();
+          let oid = id_data.getOrganizationId();
+          this.router.navigate(['environmentProfile/'+oid+'/'+eid]);
+        }
+        else if (category == "user"){
+          this.router.navigate(['userInformation/'+id_data.getUserId()]);
         }
     }
     

@@ -7,6 +7,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 import {Element} from '../TestData/TestData';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
+import { Id_data } from '../model/id_data';
 
 @Component({
   selector: 'app-organization',
@@ -17,7 +18,7 @@ export class OrganizationComponent implements OnInit {
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
   table : Table
-
+  id_data:Id_data
 
   constructor(private router: Router){}
 
@@ -25,6 +26,7 @@ export class OrganizationComponent implements OnInit {
     this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
     this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
+    this.id_data = new Id_data();
   }
 
 

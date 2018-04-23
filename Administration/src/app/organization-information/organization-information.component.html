@@ -25,19 +25,19 @@
 
     </nav>
     <div *ngIf="conditions[0]"   [@fadeInOut]  class = "profileContent">
-        <app-organization-home></app-organization-home>
+        <app-organization-home [oid] = "organization_id" ></app-organization-home>
     </div>
     <div *ngIf="conditions[1]"  [@fadeInOut] class = "environmentContent">
-            <app-environments></app-environments>
+            <app-environments [oid] = "organization_id" ></app-environments>
         </div>
     <div *ngIf="conditions[2]"  [@fadeInOut] class = "usersContent">
-        <app-user-list></app-user-list>
+        <app-user-list [oid] = "organization_id"></app-user-list>
     </div>
     <div *ngIf="conditions[3]"  [@fadeInOut] class = "contractsContent">
-        <app-contract></app-contract>
+        <app-contract [oid] = "organization_id"></app-contract>
     </div>
     <div *ngIf="conditions[4]"  [@fadeInOut] class = "requestContent">
-        <app-bills></app-bills>
+        <app-bills [oid] = "organization_id"></app-bills>
     </div>
 
 

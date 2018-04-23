@@ -18,20 +18,19 @@ import {Location} from '@angular/common';
 })
 export class EnvironmentInformationComponent implements OnInit {
 
-  id:number 
-
+  oid:string   
+  eid:string
   conditions:boolean[] = [true,false,false,false]
 
-  extractId(): any {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.id = id
-  }
   constructor(
     private route: ActivatedRoute,
     private _location: Location
   ) {}
   ngOnInit() {
-    this.extractId();
+    this.oid = this.route.snapshot.paramMap.get('oid');
+    this.eid = this.route.snapshot.paramMap.get('eid');
+    console.log(this.oid);
+    console.log(this.eid);
   }
 
   changeContent(id:number){
@@ -49,8 +48,8 @@ export class EnvironmentInformationComponent implements OnInit {
     console.log(this.conditions)
   }
   back(){
-   
-    this._location.back
+    
+    this._location.back();
   }
 
 }

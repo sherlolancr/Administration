@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
@@ -15,7 +15,8 @@ export class UserListComponent implements OnInit {
   dataSource : MatTableDataSource<any>
   table : Table
 
-
+  @Input() oid:number; 
+  
   constructor(private router: Router){}
 
   ngOnInit(): void {

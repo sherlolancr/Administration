@@ -36,3 +36,13 @@
 .search-query:focus + button {
     z-index: 3;   
 }
+.table_content{
+    display: block;
+    padding-top:30px;
+    margin-left:-80px;
+    width: 100%;
+    height: 80%;
+}
+.list{
+    width:90%;
+}

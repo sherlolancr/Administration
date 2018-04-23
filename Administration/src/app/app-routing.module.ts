@@ -8,31 +8,35 @@ import { MessagesComponent } from './messages/messages.component';
 import { RequestsComponent } from './requests/requests.component';
 import { OrganizationInformationComponent } from './organization-information/organization-information.component';
 import { EnvironmentInformationComponent } from './environment-information/environment-information.component';
+import { UserInformationComponent } from './user-information/user-information.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeRequestComponent } from './home-request/home-request.component';
 
 const routes: Routes = [
-  { path:'' ,redirectTo:'/home', pathMatch: 'full'},
+  { path:'' ,redirectTo:'/home/dashboard', pathMatch: 'full'},
   { path: 'home', component: HomepageComponent, 
     children: [
       {path: 'users',component:UsersComponent}, 
       {path: 'organization',component:OrganizationComponent},
       {path: 'messages',component:MessagesComponent},
-      {path: 'requests',component:RequestsComponent} ,
-      
+      {path: 'requests',component:HomeRequestComponent} ,
+      {path: 'dashboard',component:DashboardComponent} ,
     ]
   },
-  {path:'organizationProfile/:id', component: OrganizationInformationComponent, 
+  {path:'organizationProfile/:oid', component: OrganizationInformationComponent, 
     children: [
-      {path: '#',redirectTo:'organizationProfile/:id'}, 
+      {path: '#',redirectTo:'organizationProfile/:oid'}, 
       
     ]
   },
-  {path:'environmentProfile/:id', component: EnvironmentInformationComponent, 
+  {path:'environmentProfile/:oid/:eid', component: EnvironmentInformationComponent, 
   children: [
-    {path: '#',redirectTo:'environmentProfile/:id'}, 
+    {path: '#',redirectTo:'environmentProfile/:oid/:eid'}, 
     
   ]
 },
   { path: 'login', component: LoginInputComponent },
+  { path: 'userInformation/:uid', component: UserInformationComponent },
 ];
 
 @NgModule({

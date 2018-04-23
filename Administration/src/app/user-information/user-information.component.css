@@ -1,0 +1,199 @@
+.wrap{
+    height: 100vh;
+}
+.description{
+    float: left;
+    width:70%;
+    height: 100%;
+}
+.back{
+    width: 100%;
+    background: #1f3e69;
+    height: 100px;
+}
+.back p{
+    padding-left:30px;
+    padding-top:30px;
+    height: 100px;
+    width: 100px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 22pt;
+    color: #ffffff;
+    
+}
+.back p:hover{
+    cursor: pointer;
+}
+.buttons{
+    background: white;
+    float: right;
+    width:30%;
+    height: 190%;
+    border: rgb(209, 209, 209);
+    border-style: solid;
+    display: block;
+    border-width: 0.1em;
+    z-index: -50;
+}
+.user_name{
+    height: 150px;
+    width: 250px;
+    margin-left:50px;
+    padding-top:50px;
+}
+.user_name h1{
+    font-family: "Times New Roman", Times, serif;
+    color: #000000;
+    font-weight: bold;
+    font-size:4em;
+}
+.main_content{
+    height: 500px;
+    width: 100%;
+    display: block;
+}
+.user_information{
+    padding-top:30px;
+    height: 400px;
+    width: 50%;
+    float: left;
+    background: #ffffff;
+    margin-left:130px;
+    display: block;
+}
+
+.user_information dt{
+    font-family: "Times New Roman", Times, serif;
+    color: #000000; 
+    font-size: 1.3em;
+}
+.user_information dd{
+    font-family: "Times New Roman", Times, serif;
+    color: #000000; 
+    padding-top:10px;
+    padding-left:30px;
+    padding-bottom: 10px;
+}
+
+
+
+
+.Activity_Log{
+    height:34%;
+    width: 100%;
+    margin-bottom:50px;
+}
+.log_title{
+
+    height: 50px;
+    width: 100%;
+    background: #1f3e69
+}
+.log_title h1{
+    padding-left:70px;
+    padding-top:5px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 22pt;
+    color: #ffffff;
+}
+.log_content{
+    margin-top:50px;
+    height: 80%;
+    margin-left:20%;
+    max-height: 400px;
+    overflow: auto;
+    width: 70%;
+    border:rgb(209, 209, 209);
+    border-style: solid;
+    border-width: 0.1em;
+}
+.log_content ul{
+    list-style-type: none;
+    max-height: 400px;
+}
+.log_content ul li{
+    font-size:1.4em;
+    font-family: "Times New Roman", Times, serif;
+    padding-top:5px;
+}
+.buttons button{
+    width: 50%;
+    height: 50px;
+    margin-top:150px;
+    margin-left:150px;
+}
+.environments_list{
+    height: 60%;
+    width: 100%;
+    display: block;
+}
+.environment_content{
+    height: 100%;
+    width: 60%;
+    margin-right:100px;
+    display: block;
+}
+.list_title{
+    z-index: -40;
+    height: 50px;
+    width: 100%;
+    margin-top:100px;
+    padding-left:50px;
+    background: #1f3e69;
+
+}
+.list_title p{
+    padding-left:10px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 22pt;
+    color: #ffffff;
+}
+
+.edit_information{
+    float:right;
+    background: white;
+    height: 80%;
+    width: 30%;
+    margin-right:150px;
+    border: rgb(209, 209, 209);
+    border-style: solid;
+    display: block;
+    border-width: 0.1em;
+    margin-top:0px;
+}
+.edit_title{
+    height: 50px;
+    background: #1f3e69;
+    width: 100%;
+    padding: 0;
+    margin:0;
+    
+}
+.edit_title p{
+    padding-left:10px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20pt;
+    color: #ffffff;
+}
+.edit_content{
+    margin-top:30px;
+    
+}
+
+.edit_content button{
+    margin-top:30px;
+    margin-right:10px;
+}
+.form-group_checkbox{
+    padding-left:5px;
+    padding-top:1px;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}

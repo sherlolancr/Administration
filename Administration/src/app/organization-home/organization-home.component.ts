@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-organization-home',
@@ -13,6 +13,7 @@ export class OrganizationHomeComponent implements OnInit {
 ,"Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"
 ,"Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"]
   constructor() { }
+  @Input() oid:number;  
   ngOnInit() {
     this.edit=false;
   }
@@ -22,5 +23,8 @@ export class OrganizationHomeComponent implements OnInit {
   save_note(editcontent){
     this.edit = false;
     this.note_content = editcontent;
+  }
+  close_note(){
+    this.edit = false;
   }
 }

@@ -31,14 +31,16 @@
           </div>
           <div  *ngIf="edit" class = "edit_content" contenteditable="true">
               <div class="form-group">
-                  <textarea #notes class="form-control" placeholder = "{{note_content}}" rows="5" id="comment"></textarea>
+                  <textarea #notes class="form-control" placeholder = "{{note_content}}" rows="5" id="comment">{{note_content}}</textarea>
                   <div class="save_button">
+                    <img src="../../assets/images/notes/close.png"  (click) = "close_note()" class="save_icon">
                     <img src="../../assets/images/notes/save.png"  (click) = "save_note(notes.value)" class="save_icon">
                   </div>
                 </div>
               
           </div>
           <div class="note_button">
+              
               <img src="../../assets/images/notes/write.png" (click) = "write_note()" class="write_icon">
           </div>
       </div>

@@ -27,6 +27,12 @@ import { BillsComponent } from './bills/bills.component';
 import { EnvironmentsComponent } from './environments/environments.component';
 import { EnvironmentInformationComponent } from './environment-information/environment-information.component';
 import { EnvironmenHomeComponent } from './environmen-home/environmen-home.component';
+import { UserInformationComponent } from './user-information/user-information.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeRequestComponent } from './home-request/home-request.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,11 @@ import { EnvironmenHomeComponent } from './environmen-home/environmen-home.compo
     BillsComponent,
     EnvironmentsComponent,
     EnvironmentInformationComponent,
-    EnvironmenHomeComponent
+    EnvironmenHomeComponent,
+    UserInformationComponent,
+    EditUserComponent,
+    DashboardComponent,
+    HomeRequestComponent,
   ],
   imports: [
     MatTableModule,
@@ -57,7 +67,9 @@ import { EnvironmenHomeComponent } from './environmen-home/environmen-home.compo
     MatSortModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

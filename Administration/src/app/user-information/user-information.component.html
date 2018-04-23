@@ -1,0 +1,84 @@
+<div class = "wrap">
+  <div class = "description">
+    <div class = "back">
+        <p (click)="back()"> back </p>
+    </div>
+    <div class = "user_name">
+      <h1>Bruce Lee</h1>
+    </div>
+    <div class = "main_content">
+      <div class = "user_information">
+          <dl>
+              <dt>Account :</dt>
+              <dd>Bruce.Lee@microsoft.com</dd>
+              <dt>organization :</dt>
+              <dd>Microsoft</dd>
+              <dt>Is main account of organization :</dt>
+              <dd>No</dd>
+              <dt>Number of vm it related to :</dt>
+              <dd>4</dd>
+              <dt>Account Create Date :</dt>
+              <dd>16th April 2014</dd>
+              <dt>Last Activity :</dt>
+              <dd>16th April 2017</dd>
+            </dl>
+      </div>
+      <div *ngIf="isEdit" [@fadeInOut] class = "edit_information">
+        <div class = "edit_title">
+          <p>Edit information</p> 
+        </div>
+        <div  class="edit_content">
+            <form ngNativeValidate >
+                <div class="form-group">
+                  <label for="exampleInputEmail1">New Name</label>
+                  <input type="username" class="form-control"  value="Bruce lee" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">New email address</label>
+                  <input type="email" class="form-control" value="Bruce.Lee@microsoft.com"  id="exampleInputPassword1" placeholder="Password" required>
+                </div>
+                <div class="form-group_checkbox">
+                  <input type="checkbox" class="example"  (change)="check()"  id="check" required> 
+                </div>
+                <button type = "submit" (click)="save_edit(saveUsername)"  class="btn btn-primary">Save</button>
+                <button  (click)="save_edit(saveUsername)"  class="btn btn-primary">close</button>
+              </form>
+        </div>
+        <div class="edit_button">
+        </div>
+      </div>
+    </div>
+
+    <div class = "environments_list">
+        <div class = "list_title">
+                <p>Enviroment related</p>
+        </div>
+        <div class = "environment_content">
+            <app-table-format [table]="table" [category]="'user'" class="table_content"></app-table-format>
+        </div>
+    </div>
+
+    <div class = "Activity_Log">
+        <div class = "log_title">
+          <h1>Activity Log</h1>
+        </div>
+        <div class = "log_content">
+          <ul class="log_list">
+            <li *ngFor="let log of logs">
+                {{ log }}
+            </li>
+          </ul>
+        </div>
+
+          
+    </div>
+
+
+    
+  </div>
+  <div class = "buttons">
+      <button type="button" class="btn btn-primary btn-block">Delete</button>
+      <button type="button" class="btn btn-primary btn-block">Reset Password</button>
+      <button type="button" class="btn btn-primary btn-block" (click) = "edit()">Edit information</button>
+  </div>
+</div>

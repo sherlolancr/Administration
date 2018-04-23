@@ -1,4 +1,15 @@
 <div class = "description">
     <p>Users</p>
   </div>
-<app-table-format [table]="table" class="table_content"></app-table-format>
+<div class="research_container">
+    <div class="row">
+          <div id="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" (keyup) = "applyFilter($event.target.value)" class="  search-query form-control" placeholder="Organiazation name" />
+            </div>
+          </div>
+    </div>
+</div>
+<div class = "list">
+  <app-table-format [table]="table" [category]="'user'" class="table_content"></app-table-format>
+</div>
