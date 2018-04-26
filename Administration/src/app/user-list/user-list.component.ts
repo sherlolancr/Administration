@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
-import { ELEMENT_DATA } from '../TestData/TestData';
+import { userData } from '../TestData/TestData';
 
 @Component({
   selector: 'app-user-list',
@@ -20,8 +20,8 @@ export class UserListComponent implements OnInit {
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
+    this.displayedColumns =['id', 'user_name', 'email_address', 'company_name','lastActivity','role','related_environment'];
+    this.table = new Table(userData,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
   }
 

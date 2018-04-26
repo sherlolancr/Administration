@@ -1,6 +1,15 @@
 <div class = "description">
     <p>Environments</p>
   </div>
+<div class="research_container">
+    <div class="row">
+          <div id="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" (keyup) = "applyFilter($event.target.value)" class="  search-query form-control" placeholder="Environment name" />
+            </div>
+          </div>
+    </div>
+</div>
 <div class = "list">
-    <app-table-format [table]="table" [category]="'environment'" [oid] = "oid" class="table_content"></app-table-format>
+    <app-table-format [table]="table" [category]="'environment'" [isEnvironment] = "true" [oid] = "oid" class="table_content"></app-table-format>
 </div>  

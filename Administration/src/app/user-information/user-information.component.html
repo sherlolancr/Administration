@@ -4,23 +4,23 @@
         <p (click)="back()"> back </p>
     </div>
     <div class = "user_name">
-      <h1>Bruce Lee</h1>
+      <h1>{{user_name}}</h1>
     </div>
     <div class = "main_content">
       <div class = "user_information">
           <dl>
               <dt>Account :</dt>
-              <dd>Bruce.Lee@microsoft.com</dd>
+              <dd>{{account}}</dd>
               <dt>organization :</dt>
-              <dd>Microsoft</dd>
+              <dd>{{organization}}</dd>
               <dt>Is main account of organization :</dt>
               <dd>No</dd>
-              <dt>Number of vm it related to :</dt>
-              <dd>4</dd>
+              <dt>Number of environment it related to :</dt>
+              <dd>{{envrionment_number}}</dd>
               <dt>Account Create Date :</dt>
               <dd>16th April 2014</dd>
               <dt>Last Activity :</dt>
-              <dd>16th April 2017</dd>
+              <dd>{{last_activity}}</dd>
             </dl>
       </div>
       <div *ngIf="isEdit" [@fadeInOut] class = "edit_information">
@@ -54,7 +54,7 @@
                 <p>Enviroment related</p>
         </div>
         <div class = "environment_content">
-            <app-table-format [table]="table" [category]="'user'" class="table_content"></app-table-format>
+            <app-table-format [table]="table" [category]="'environment'" [isEnvironment]="true" class="table_content"></app-table-format>
         </div>
     </div>
 

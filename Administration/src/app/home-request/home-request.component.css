@@ -48,7 +48,7 @@
     text-align: center;
   }
   .menu ul li p {
-    color: #ffffff;
+    color: #8a8a8a;
     text-decoration: none;
     display: block;
     padding: 15px 25px;
@@ -122,7 +122,6 @@
 .requestList{
     height: 90%;
     width: 100%;
-    margin-top:-50px;
     display: block;
 }
   
@@ -134,4 +133,120 @@
 } 
 .list{
   width:100%;
+  height: 100%;
+}
+#custom-search-input {
+
+  margin:0;
+  margin-top: 2%;
+  width: 80%;
+  padding: 0;
+  float:left;
+}
+
+#custom-search-input .search-query {
+  padding-right: 3px;
+  padding-right: 4px \9;
+  margin-right: 5%;
+  padding-left: 4px \9;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#custom-search-input button {
+  border: 0;
+  background: none;
+  /** belows styles are working good */
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: relative;
+  left: -28px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color:#1f3e69;
+}
+
+.search-query:focus + button {
+  z-index: 3;   
+}
+.table_content{
+  display: block;
+  padding-top:30px;
+  width: 100%;
+  height: 80%;
+}
+.list{
+  width:70%;
+  margin-left:10%;
+  height: 100%;
+}
+.Search_title{
+  height: 25%;
+  width:100%;
+}
+.Search_title h1{
+  font-size: 3em;
+  margin:0;
+  height: 30%;
+  width: 100%;
+  padding-left:38%;
+  padding-top:7%;
+  font-family: 'Open Sans', sans-serif;
+  color:rgb(100, 100, 100);
+}
+.container{
+  height: 80vh;
+}
+.row{
+  height: 20%;
+  width: 80%;
+
+  margin:0;
+  margin-left:10%;
+  margin-top:5%;
+}
+.filter_conditions{
+  height: 60%;
+  
+  width: 100%;
+}
+.selectpicker{
+  height: 40%;
+  width: 50%;
+  float: right;
+  font-family: 'Open Sans', sans-serif;
+  color:rgb(100, 100, 100);
+  margin-right:10%;
+}
+.condition{
+  width: 50%;
+  height: 100%; 
+  float: left;
+  margin-right:8%;
+  
+}
+.condition h1{
+  margin:0;
+  width: 30%;
+  float:left;
+  font-size:1.1em;
+  font-family: 'Open Sans', sans-serif;
+  color:rgb(100, 100, 100);
+}
+.row button{
+  float:right;
+  width: 10%;
+  margin-top:2%;
+  margin-right:7%;
+  background-color:#1f3e69;
+}
+.searchByPo{
+  height: 80%;
+  width: 100%;
 }

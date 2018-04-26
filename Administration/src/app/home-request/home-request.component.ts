@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Table } from '../model/table';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
-import { ELEMENT_DATA } from '../TestData/TestData';
+import { requestData,contractRequestData } from '../TestData/TestData';
 import {style, state, animate, transition, trigger} from '@angular/core';
 @Component({
   selector: 'app-home-request',
@@ -22,19 +22,27 @@ import {style, state, animate, transition, trigger} from '@angular/core';
   ]
 })
 export class HomeRequestComponent implements OnInit {
+  serach_submitted: boolean;
+  searchSelected: boolean;
+  contractDataSource: MatTableDataSource<any>;
+  contractTable: Table;
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
   table : Table
-  changeRequestSelected = true;
-  newRequestSelected = false;
-  
+
+  changeRequestSelected = false;
+
+  conditions = [{title:"Request date",value:["all time","within a week","within two week","within a month"]}]
   @Input() oid:number; 
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
+    this.displayedColumns = ['id', 'request_by', 'request_at', 'status','read_status'];
+    this.table = new Table(requestData,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
+    this.contractTable = new Table(contractRequestData,this.displayedColumns,this.router);
+    this.contractDataSource = this.contractTable.getDataSource();
+    this.searchSelected =false;
   }
 
 
@@ -42,12 +50,17 @@ export class HomeRequestComponent implements OnInit {
     this.table.applyFilter(filterValue);
   }
   newRequest(){
-    this.newRequestSelected = true;
     this.changeRequestSelected =false;
+    this.searchSelected = false;
   }
   changeRequest(){
-    this.newRequestSelected = false;
     this.changeRequestSelected = true;
+    this.searchSelected = false;
   }
-
+  searchPo(){
+    this.searchSelected = true;
+  }
+  search(){
+    this.serach_submitted = true;
+  }
 }

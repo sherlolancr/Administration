@@ -1,0 +1,60 @@
+<div class = "container">
+  <div class = "bill_title">
+    <h1>Bill information </h1>
+  </div>
+  <div class = "bill_content">
+    <header>
+      <h1>
+        Company : Microsoft
+      </h1>
+    </header>
+    <div class = "bill_details">
+      <div class = "current_bill">
+        <h1>Breakdown for month 10/2018</h1>
+        <div class = "information">
+          <div class = "breakdown_list">
+            <div class = "breakdown_element" *ngFor="let element of breakdown_elements">
+                <h2>{{element.name}}</h2>
+                <h3>{{element.price}}</h3>
+            </div>
+          </div>
+          <div class = "bill_amount" >
+              <h3>monthly usage has come to</h3>
+              <h2>£4000</h2>
+          </div>
+        </div>
+        <div class ="action">
+            
+            <button type="button" class="btn btn-primary btn-block">Send Invoice</button>
+            <button type="button" class="btn btn-primary btn-block">Download Invoice</button>
+            <button type="button" class="btn btn-primary btn-block">Attach Invoice</button>
+        </div>
+      </div>
+      
+      <div class = "history">
+        <div class = "history_information">
+            <h1>Billing history</h1>
+            <div class = "history_list">
+                <div class = "list_header">
+                    <h2>Date</h2>
+                    <h3>Amount</h3>
+                    <h5>Paid on </h5>
+                </div>
+                <div class = "history_element" *ngFor="let element of breakdown_elements">
+                    <h4>View Invoice</h4>
+                    <h2>11/10/2018</h2>
+                    <h3>£200</h3>
+                    <h5>Pending </h5>
+
+                </div>
+            </div>
+            <div class ="action">
+            
+              <button (click) = "back()" type="button" class="btn btn-primary btn-block">Close</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>  

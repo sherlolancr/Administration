@@ -1,0 +1,186 @@
+.wrapper{
+    height: 100%;
+    width: 100%;
+}
+.title{
+    height: 10vh;
+    width: 100%;
+}
+.title h1{
+    margin:0;
+    height: 100%;
+    color:rgb(155, 155, 155);
+    font-size: 2.2em;
+    padding-left:50px;
+    padding-top:3%;
+}
+.contract_information{
+    width: 100%;
+    height: 50vh;
+}
+.contract_information header{
+    background: #1f3e69;
+    height: 12% ;
+
+}
+.contract_information header h1{
+    margin:0;
+    height: 100%;
+    color:white;
+    font-size: 1.5em;
+    padding-left:50px;
+    padding-top:1%;
+}
+.content{
+    height: 85%;
+    width: 100%;
+}
+.date_price{
+    height: 20%;
+}
+.date_price h2,h3{
+    margin:0;
+    font-size:1.6em;
+    color:rgb(155, 155, 155);
+
+}
+.date_price h2{
+    float:left;
+    width:30%;
+    margin-left:13%;
+    margin-top:2%;
+}
+.date_price h3{
+    float:right;
+    margin-top:2%;
+    padding-right:25%;
+}
+.details{
+    height: 80%;
+}
+.breakdown{
+    float:left;
+    height: 100%;
+    width: 50%;
+    padding-top:5%;
+    overflow: auto;
+}
+.notes_pdf{
+    float: right;
+    height: 100%;;
+    width: 50%;
+}
+.detail_element{
+    height: 10%;
+    margin-top:3px;
+    width: 100%;
+}
+.detail_element h2,h3{
+    font-size:1.3em;
+    color:rgb(155, 155, 155);
+    margin:0;
+}
+.detail_element h2{
+    float:left;
+    width: 60%;
+    padding-left:15%;
+}
+.detail_element h3{
+    float:right;
+    width: 40%;
+    padding-right:15%;
+}
+.notes{
+    width: 100%;
+    height: 60%;
+    padding-top:2%;
+}
+.signed_by{
+    height: 20%;
+    width: 100%;
+}
+.signed_by h1{
+    margin:0;
+    
+}
+.signed_by h1{
+    font-size:1.8em;
+    color:rgb(155, 155, 155);
+}
+.signed_by p{
+    font-size:1.4em;
+    padding-left:10%;
+    padding-top:1%;
+    color:rgb(155, 155, 155);
+}
+.notes h1{
+    margin:0;
+    font-size:1.8em;
+    color:rgb(155, 155, 155);
+}
+.notes p{
+    font-size:1.4em;
+    padding-left:10%;
+    padding-top:1%;
+    color:rgb(155, 155, 155);
+}
+.po_pdf{
+    height: 10%;
+    width: 100%;
+
+}
+.po_pdf h1{
+    margin :0;
+    font-size:1.6em;
+    color:rgb(155, 155, 155);
+    float: left;
+    padding-left:10%;
+    padding-top:1%
+}
+.po_pdf p{
+    margin :0;
+    font-size:1.4em;
+    color:rgb(44, 55, 218);
+    float: right;
+    padding-top:1%;
+    padding-right:10%;
+    
+}
+.po_pdf p:hover{
+    color:black;
+    cursor: pointer;
+    
+}
+.crs{
+    height: 40vh;
+    width: 100%
+}
+.crs header{
+    background: #1f3e69;
+    height: 15% ;
+
+}
+.crs header h1{
+    margin:0;
+    height: 100%;
+    color:white;
+    font-size: 1.5em;
+    padding-left:50px;
+    padding-top:1%;
+}
+.crs_table{
+    height: 80%;
+    width: 80%;
+    padding-left:20%;
+}
+.actions{
+    height: 10%;
+    width: 100%;
+}
+.actions button{
+    float:right;
+    width: 12%;
+    margin-right:100px;
+    height: 50%;
+    margin-top:0;
+}

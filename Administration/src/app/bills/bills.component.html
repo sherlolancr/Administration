@@ -1,6 +1,25 @@
 <div class = "description">
-    <p>Bills</p>
+    <p>Company Bills</p>
   </div>
-<div class = "list">
-  <app-table-format [table]="table" [category]="'user'" class="table_content"></app-table-format>
+  <div class="row">
+      <div class = "filter_conditions">
+          <div class = "condition" *ngFor = "let condition of conditions" >
+            <h1>{{condition.title}}</h1>
+            <select class="selectpicker" >
+                <option *ngFor = "let option of condition.value">{{option}}</option>
+            </select>
+          </div>
+            
+      </div>
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="  search-query form-control" placeholder="Environment name" />
+          <input type="text" class="  search-query form-control" placeholder="Invoice Id" />
+        </div>
+        
+      </div>
+      <button (click) = "search()" type="button" class="btn btn-primary btn-block">Search</button>
+    </div>
+<div *ngIf = "serach_submitted" class = "list">
+  <app-table-format [table]="table" [category]="'bill'" [isBill] = "true" class="table_content"></app-table-format>
 </div>

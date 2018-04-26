@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     align-items: stretch;
+    height: 100vh;
 }          
 
 
@@ -103,4 +104,8 @@ li, li:hover, li:focus {
     height: 120px;
     width: 150px;
     margin-top:-30px;
+}
+.safenetContent{
+    height: 100%;
+    width:100% ;
 }

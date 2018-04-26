@@ -11,9 +11,12 @@ import { EnvironmentInformationComponent } from './environment-information/envir
 import { UserInformationComponent } from './user-information/user-information.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeRequestComponent } from './home-request/home-request.component';
+import { RequestInformationComponent } from './request-information/request-information.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { BillInformationComponent } from './bill-information/bill-information.component';
 
 const routes: Routes = [
-  { path:'' ,redirectTo:'/home/dashboard', pathMatch: 'full'},
+  { path:'' ,redirectTo:'/home/organization', pathMatch: 'full'},
   { path: 'home', component: HomepageComponent, 
     children: [
       {path: 'users',component:UsersComponent}, 
@@ -29,6 +32,12 @@ const routes: Routes = [
       
     ]
   },
+  {path:'requestInformation/:rid', component: RequestInformationComponent, 
+  children: [
+    {path: '#',redirectTo:'requestInformation/:rid'}, 
+    
+  ]
+},
   {path:'environmentProfile/:oid/:eid', component: EnvironmentInformationComponent, 
   children: [
     {path: '#',redirectTo:'environmentProfile/:oid/:eid'}, 
@@ -37,6 +46,8 @@ const routes: Routes = [
 },
   { path: 'login', component: LoginInputComponent },
   { path: 'userInformation/:uid', component: UserInformationComponent },
+  { path: 'contractInformation/:cid', component: ContractDetailComponent },
+  { path: 'billInformation/:cid', component: BillInformationComponent },
 ];
 
 @NgModule({

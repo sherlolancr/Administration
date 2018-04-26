@@ -21,6 +21,7 @@
             <li (click)="changeContent(2)">Users</li>            
             <li (click)="changeContent(3)">Contracts</li>
             <li (click)="changeContent(4)">Bills</li>
+            <li (click)="changeContent(5)">Safe net policy</li>
         </ul>
 
     </nav>
@@ -39,7 +40,10 @@
     <div *ngIf="conditions[4]"  [@fadeInOut] class = "requestContent">
         <app-bills [oid] = "organization_id"></app-bills>
     </div>
-
+    <div *ngIf="conditions[5]"  [@fadeInOut] class = "safenetContent">
+            <app-safenet-policy [oid] = "organization_id"></app-safenet-policy>
+    </div>
+    
 
     
 </div>  

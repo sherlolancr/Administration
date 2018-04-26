@@ -26,6 +26,15 @@ export class Table{
         else if (category == "user"){
           this.router.navigate(['userInformation/'+id_data.getUserId()]);
         }
+        else if (category == "request"){
+          this.router.navigate(['requestInformation/'+id_data.getRequestId()]);
+        }
+        else if (category == "contract"){
+          this.router.navigate(['contractInformation/'+id_data.getContractId()]);
+        } 
+        else if (category == "bill"){
+          this.router.navigate(['billInformation/'+id_data.getBillId()]);
+        }
     }
     
     applyFilter(filterValue: string) {

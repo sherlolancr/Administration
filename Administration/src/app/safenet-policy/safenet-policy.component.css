@@ -1,0 +1,101 @@
+.description{
+    height: 100px;
+    width: 100%;
+    margin-top:100px;
+    padding-left:50px;
+}
+.description p{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 22pt;
+}
+.policy_content{
+    height: 30%;
+    width: 100%;
+}
+.policy_content ul{
+    height: 70%;
+    width:30%;  
+}
+.policy_content li{
+    margin-top:3%;
+    height: 8%;
+    width: 60%;
+    margin-left:30%;
+    list-style-type: none;
+}
+.policy_content li h1{
+    float:left;
+    margin:0;
+    margin-top:1%;
+    color: dimgray;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.policy_content li h2{
+    float:right;
+    margin:0;
+    color: dimgray;
+    margin-top:1%;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+}
+.policy_content button{
+    width: 7%;
+    height: 12%;
+    margin-left:20%;
+}
+.editPolicy {
+    height: 40%;
+    width: 100%;
+}
+.editPolicy ul{
+    height: 70%;
+    width:30%;  
+}
+.editPolicy li{
+    margin-top:3%;
+    height: 8%;
+    width: 60%;
+    margin-left:30%;
+    list-style-type: none;
+}
+.editPolicy li h1{
+    float:left;
+    margin:0;
+    margin-top:1%;
+    color: dimgray;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.editPolicy li input{
+    float:right;
+    width: 20%;
+    height: 80%;
+    text-align: center;
+}
+.checkbox{
+    float: right;
+    
+}
+.editPolicy button{
+    width: 30%;
+    margin :0;
+    height: 30%;
+    float: right;
+    margin-right:5%;
+}
+.buttons{
+    width: 30%;
+    height: 30%;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.0); /* IE */
+  -moz-transform: scale(1.0); /* FF */
+  -webkit-transform: scale(1.0); /* Safari and Chrome */
+  -o-transform: scale(1.0); /* Opera */
+  padding: 10px;
+}

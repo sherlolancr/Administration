@@ -1,13 +1,15 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Table } from '../model/table';
-import { ELEMENT_DATA } from '../TestData/TestData';
-import { Router } from '@angular/router';
+import { environmentData,userData } from '../TestData/TestData';
+import { Router, ActivatedRoute } from '@angular/router';
 import {Location} from '@angular/common';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import { OrganizationComponent } from '../organization/organization.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import {style, state, animate, transition, trigger} from '@angular/core';
+
+
 @Component({
   selector: 'app-user-information',
   templateUrl: './user-information.component.html',
@@ -25,6 +27,11 @@ import {style, state, animate, transition, trigger} from '@angular/core';
   ]
 })
 export class UserInformationComponent implements OnInit {
+
+  last_activity: string;
+  envrionment_number: number;
+  organization: string;
+  account: string;
   isEmailFilled: boolean;
   isNameFilled: boolean;
   displayedColumns : string[]
@@ -33,17 +40,27 @@ export class UserInformationComponent implements OnInit {
   isEdit: boolean;
   isChecked: boolean;
  
+
+  user_id;
+  user_name;
+
+
+
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private location:Location,
     public dialog: MatDialog
    ) { }
 
   ngOnInit() {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
+    this.displayedColumns = ['id', 'environment_name', 'number_of_vm', 'number_of_tier','total_cost', 'created_time','contract_ended'];
+    this.table = new Table(environmentData,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
     this.isEdit = false;
+    this.user_id  =  this.route.snapshot.paramMap.get('uid');
+    console.log(this.user_id)
+    this.assignVariables()
   }
   back(){
     this.location.back();
@@ -64,6 +81,18 @@ export class UserInformationComponent implements OnInit {
   check(){
     console.log("checked");
     this.isChecked = !this.isChecked
+  }
+
+  assignVariables(): any {
+    for (let user of userData){
+      if(user.id == this.user_id){
+        this.user_name = user.user_name;
+        this.account = user.email_address;
+        this.organization = user.company_name;
+        this.envrionment_number = user.related_environment;
+        this.last_activity = user.lastActivity;
+      }
+    }
   }
 }
 

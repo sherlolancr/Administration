@@ -16,11 +16,10 @@
 
         <!-- Sidebar Links -->
         <ul class="list-unstyled components">
-            <li (click)="back()">back to organization</li>     
+            <li (click)="back()" class = "back">Back to organization</li>     
             <li (click)="changeContent(0)">Profile</li>     
             <li (click)="changeContent(1)">Users</li>            
-            <li (click)="changeContent(2)">Contracts</li>
-            <li (click)="changeContent(3)">Change Requests</li>
+            <li (click)="changeContent(2)">Contracts & CRs</li>
         </ul>
 
     </nav>
@@ -31,10 +30,7 @@
         <app-user-list></app-user-list>
     </div>
     <div *ngIf="conditions[2]"  [@fadeInOut] class = "contractsContent">
-        <app-contract></app-contract>
-    </div>
-    <div *ngIf="conditions[3]"  [@fadeInOut] class = "requestContent">
-        <app-requests></app-requests>
+        <app-contract-detail></app-contract-detail>
     </div>
 
 

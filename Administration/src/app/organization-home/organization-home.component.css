@@ -23,8 +23,8 @@
     padding-top:50px;
 }
 .company_name h1{
-    font-family: "Times New Roman", Times, serif;
-    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+    color: #363636;
     font-weight: bold;
     font-size:4em;
 }
@@ -56,13 +56,13 @@
     border-width: 0.01em;
 }
 .company_information dt{
-    font-family: "Times New Roman", Times, serif;
-    color: #000000; 
+    font-family: 'Open Sans', sans-serif;
+    color: dimgray;
     font-size: 1.3em;
 }
 .company_information dd{
-    font-family: "Times New Roman", Times, serif;
-    color: #000000; 
+    font-family: 'Open Sans', sans-serif;
+    color: dimgray;
     padding-top:10px;
     padding-left:30px;
     padding-bottom: 10px;

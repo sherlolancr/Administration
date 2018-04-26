@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
-import { ELEMENT_DATA } from '../TestData/TestData';
+import { environmentData } from '../TestData/TestData';
 
 @Component({
   selector: 'app-environments',
@@ -18,8 +18,8 @@ export class EnvironmentsComponent implements OnInit {
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
+    this.displayedColumns = ['id', 'environment_name', 'number_of_vm', 'number_of_tier','total_cost', 'created_time','contract_ended'];
+    this.table = new Table(environmentData,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
   }
 

@@ -1,12 +1,28 @@
 <div class="container">
+  <div class = "Search_title">
+    <h1>User Search</h1>
+  </div>
+      
+      
     <div class="row">
-          <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="text" (keyup) = "applyFilter($event.target.value)" class="  search-query form-control" placeholder="User name" />
-            </div>
+      <div class = "filter_conditions">
+          <div class = "condition" *ngFor = "let condition of conditions" >
+            <h1>{{condition.title}}</h1>
+            <select class="selectpicker" >
+                <option *ngFor = "let option of condition.value">{{option}}</option>
+            </select>
           </div>
+            
+      </div>
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="  search-query form-control" placeholder="User name" />
+        </div>
+        
+      </div>
+      <button (click) = "search()" type="button" class="btn btn-primary btn-block">Search</button>
     </div>
-</div>
-<div class = "list">
-  <app-table-format [table]="table" [category]="'user'" class="table_content"></app-table-format>
+  <div *ngIf = "serach_submitted" class = "list">
+    <app-table-format [table]="table" [category]="'user'" [isUser] = "true" class="table_content"></app-table-format>
+  </div>
 </div>

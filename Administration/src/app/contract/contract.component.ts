@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
-import { ELEMENT_DATA } from '../TestData/TestData';
+import { contractData } from '../TestData/TestData';
 
 @Component({
   selector: 'app-contract',
@@ -19,8 +19,8 @@ export class ContractComponent implements OnInit {
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.table = new Table(ELEMENT_DATA,this.displayedColumns,this.router);
+    this.displayedColumns = ['id', 'environment_name', 'signed_by','created_time','contract_ended'];
+    this.table = new Table(contractData,this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
   }
 

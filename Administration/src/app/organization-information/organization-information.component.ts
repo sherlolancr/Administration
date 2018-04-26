@@ -5,6 +5,8 @@ import { MatToolbarModule,MatToolbarRow } from '@angular/material/toolbar';
 import {style, state, animate, transition, trigger} from '@angular/core';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-organization-information',
   templateUrl: './organization-information.component.html',
@@ -22,7 +24,7 @@ import { Router } from '@angular/router';
 export class OrganizationInformationComponent implements OnInit {
   organization_id 
 
-  conditions:boolean[] = [false,false,true,false,false]
+  conditions:boolean[] = [true,false,false,false,false,false]
 
 
   constructor(

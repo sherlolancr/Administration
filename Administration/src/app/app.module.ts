@@ -22,7 +22,6 @@ import { OrganizationHomeComponent } from './organization-home/organization-home
 import { UserListComponent } from './user-list/user-list.component';
 import { TableFormatComponent } from './table-format/table-format.component';
 import { ContractComponent } from './contract/contract.component';
-import { LogComponent } from './log/log.component';
 import { BillsComponent } from './bills/bills.component';
 import { EnvironmentsComponent } from './environments/environments.component';
 import { EnvironmentInformationComponent } from './environment-information/environment-information.component';
@@ -34,6 +33,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeRequestComponent } from './home-request/home-request.component';
 import {MatListModule} from '@angular/material/list';
+import { RequestInformationComponent } from './request-information/request-information.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ContractInformationComponent } from './contract-information/contract-information.component';
+import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { BillInformationComponent } from './bill-information/bill-information.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SafenetPolicyComponent } from './safenet-policy/safenet-policy.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +55,6 @@ import {MatListModule} from '@angular/material/list';
     UserListComponent,
     TableFormatComponent,
     ContractComponent,
-    LogComponent,
     BillsComponent,
     EnvironmentsComponent,
     EnvironmentInformationComponent,
@@ -58,6 +63,11 @@ import {MatListModule} from '@angular/material/list';
     EditUserComponent,
     DashboardComponent,
     HomeRequestComponent,
+    RequestInformationComponent,
+    ContractInformationComponent,
+    ContractDetailComponent,
+    BillInformationComponent,
+    SafenetPolicyComponent,
   ],
   imports: [
     MatTableModule,
@@ -71,7 +81,9 @@ import {MatListModule} from '@angular/material/list';
     MatTabsModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

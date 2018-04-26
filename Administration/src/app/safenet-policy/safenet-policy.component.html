@@ -1,0 +1,30 @@
+
+<div class = "description">
+    <p>Safety Net Policy</p>
+</div>
+<div class = "policy_content">
+    <ul>
+      <li><h1>Off site backup :</h1><h2>No</h2></li>
+      <li><h1>Disaster recovery requested :</h1><h2>No</h2></li>
+      <li><h1>Nightly Backup</h1>  <h2>2 night(s)</h2></li>
+      <li><h1>Weekly Backup</h1> <h2>3 week(s)</h2></li>
+      <li><h1>Monthly Backup</h1> <h2>1 month(s)</h2></li>
+      <li><h1>Yearly Backup</h1> <h2>2 year(s)</h2></li>
+    </ul>
+    <button *ngIf="!isEdit" (click)="edit()" type="button" class="btn btn-primary btn-block">Edit</button>
+</div>
+<div *ngIf="isEdit" class = "editPolicy">
+    <ul>
+      <li><h1>Off site backup : </h1> <input class = "checkbox" type="checkbox"></li>
+      <li><h1>Disaster recovery requested :</h1> <input  class = "checkbox" type="checkbox" > </li>
+      <li><h1>Nightly Backup</h1> <input  class = "inputVariable" type="text" class="form-control" ></li>
+      <li><h1>Weekly Backup</h1> <input  class = "inputVariable" type="text" class="form-control" ></li>
+      <li><h1>Monthly Backup</h1> <input class = "inputVariable" type="text" class="form-control" id="usr"></li>
+      <li><h1>Yearly Backup</h1><input  class = "inputVariable" type="text" class="form-control" id="usr"> </li>
+    </ul>
+    <div class= "buttons">    
+        <button  (click)="save()" type="button" class="btn btn-primary btn-block">Save</button>
+        <button  (click)="cancel()" type="button" class="btn btn-primary btn-block">Cancel</button>
+
+    </div>
+</div>

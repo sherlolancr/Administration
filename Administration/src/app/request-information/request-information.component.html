@@ -1,0 +1,85 @@
+<div class =  "container">
+  <div class = "request_header">
+      <img _ngcontent-c4=""  (click) = "back()" class="logo" src="/assets/images/logos/logo-white.svg">
+  </div>
+  
+  <div class = "wrapper">
+    <div class = "request_title">
+        <h1>Request from {{requestFrom}}</h1>
+        <mat-divider></mat-divider>
+    </div>
+    
+    
+    <div class = "request_content">
+      <div class = "request_number">
+          <h1>PO #{{requestId}}</h1>
+      </div>
+      <mat-divider></mat-divider>
+      <div class = "basic_information">
+        <div class = "user_notes">
+          <h2>User Notes:</h2>
+            <h3>{{notes}}</h3>
+        </div>  
+        <div *ngIf = "requestStatus == 'pending'" class = "valid_check">
+            <div class="form-group">
+                <label for="sel1">Valid Request?:</label>
+                <select class="form-control" id="sel1">
+                  <option>Valid</option>
+                  <option>Invalid</option>
+                  <option>Confirmation Required</option>
+                </select>
+              </div>
+                           
+        </div>
+        <div *ngIf = "requestStatus == 'pending'" class = "comment">
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+              </div>
+        </div>
+      </div>
+
+      <div class = "actions">
+          <button  *ngIf = "requestStatus == 'pending'"  type="button" class="btn btn-primary btn-block">Send Message</button>
+          <button (click)="back()" type="button" class="btn btn-primary btn-block">Back</button>
+          
+      </div>
+    </div>
+
+    <div class = "breakdown">
+      <div class = "breakdown_title">
+        <h2>Environment Breakdown</h2>
+        <h3> Total cost: £4000 </h3>
+      </div>
+      <mat-divider></mat-divider>
+      <div class = "breakdown_list">
+              <h3 mat-subheader>Tiers:</h3>
+              <div class = "list_item" *ngFor="let vm of change_vms">
+                  <div class = "vm_basic">
+                    <img src="../../assets/images/vm/windows.svg">
+                    <h4 mat-line>{{vm.name}}</h4>
+                    <h5>{{vm.price}}</h5>
+                  </div>
+                  <div class = "vm_details">
+                    <div class = "cpu">
+                        <img src = "../../assets/images/vm/cpu.svg">
+                        <h4>2vCPU(s): £400</h4>
+                      </div>
+                    <div class = "ram">
+
+                    </div>
+                    <div class = "hdd">
+
+                    </div>
+                  </div>
+              </div>
+              <mat-divider></mat-divider>
+              <h3 mat-subheader>Others:</h3>
+              <div *ngFor="let otherChange of otherChanges">
+                <h4 mat-line>{{note.name}}</h4>
+                <p mat-line> {{note.updated | date}} </p>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>

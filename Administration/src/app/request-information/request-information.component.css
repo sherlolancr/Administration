@@ -1,0 +1,230 @@
+.container{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    
+}
+.wrapper{
+    height: 60%;
+    width: 70%;
+    margin-left:10%;
+}
+.request_content{
+    float:right;
+    width: 75%;
+    height: 100%;
+}
+.breakdown  {
+    float: left;
+    width:25%;
+    height: 100%;
+}
+.request_header{
+    height: 14.8%;
+    width: 100%;
+    background: #1f3e69;
+}
+.request_header img{
+    margin:0;
+    height:150px;
+    width: 150px;
+    margin-left:4.1%;
+    margin-top:-0.6%;
+}
+.request_header img:hover{
+    cursor: pointer;
+}
+.request_title{ 
+    height: 16%;
+    width:100%;
+    margin-bottom:30px;
+}
+.request_title h1{
+    color:rgb(102, 102, 102);
+    padding-top:40px;
+    margin-bottom:40px;
+}
+.breakdown_title {
+    height: 11%;
+    width: 100%;
+}
+.breakdown_title h2{
+    padding-left:5%;
+    height: 10px;
+    margin :0;
+    margin-top:30px;
+    font-size:1.7em;
+    
+    color:rgb(102, 102, 102);
+}
+.wrapper mat-divider{
+    color: lightgrey;
+}
+.breakdown_list{
+    width: 100%;
+    height: 100%;
+}
+.mat-list{
+    overflow:auto;
+    height: 100%;
+}
+.list_item {
+    height:15%;
+    margin:0;
+    margin-top:10px;
+    display: block;
+}
+.vm_basic  img{
+    height: 30px;
+    width:  30px;
+    float:left;
+    display: block;
+}
+
+.vm_basic{
+    height: 30px;
+    width: 100%;
+    display: block;
+}
+.breakdown_title h3 {
+    margin :0;
+    color: rgb(0, 0, 0);
+    font-size: 1.4em;
+    margin-top :8%;
+    margin-left:5%;
+}
+.breakdown_list h4{
+    height:100%;
+    margin :0;
+    float: left;
+    width: 10%;
+    color: rgb(102, 102, 102);
+    margin-left:5px;
+    margin-top:1px;
+    padding-top:1px;
+}
+.vm_basic h5{
+    height:100%;
+    float: right;
+    width: 10%;
+    color: rgb(102, 102, 102);
+}
+.vm_details{
+    display: block;
+    height: 50%;
+    width: 100%;
+}
+.cpu{
+    height: 100%;
+    padding-top:20px;
+    float: left;
+    width: 35%;
+    margin-left:-19%;
+}
+.cpu h4{
+    width: 80%;
+    color: rgb(102, 102, 102);
+    font-size: 0.7em;
+    float: left;
+}
+.cpu img{
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-top:-5px;
+}
+.ram{
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+.ram h4{
+    width: 80%;
+    color: rgb(102, 102, 102);
+    font-size: 0.7em;
+    float: left;
+}
+.ram img{
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-top:-5px;
+}
+.hdd{
+    height: 100%;
+    float:left;
+    width: 25%;
+}
+.hdd h4{
+    width: 80%;
+    color: rgb(102, 102, 102);
+    font-size: 0.7em;
+    float: left;
+}
+.hdd img{
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-top:-5px;
+}
+.request_number{
+    height: 11%;
+    width: 100%;
+    display: block;
+}
+.request_number h1{
+    padding-left:7%;
+    height: 10px;
+    margin :0;
+    margin-top:30px;
+    font-size:1.7em;
+    width: 30%;
+    color:rgb(102, 102, 102);
+}
+.basic_information{
+    height: 80%;
+    width: 100%;
+    margin-left:5%;
+    margin-top:5%;
+}
+.user_notes{
+    height: 18%;
+    width: 60%;
+}
+.user_notes h2{
+    font-size: 1.5em;
+    color:rgb(102, 102, 102);
+}
+.user_notes h3{
+    font-size: 1.0em;
+    width: 100%;
+    padding-left: 10%;
+    color:rgb(102, 102, 102);
+}
+.valid_check label{
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: 100;
+    color:rgb(102, 102, 102);
+}
+.comment{
+    height: 50%;
+    padding-top:5%;
+}
+.comment label{
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: 100;
+    color:rgb(102, 102, 102);
+}
+.actions{
+    height: 10%;
+    width: 100%;
+}
+.actions button{
+    float:right;
+    width: 20%;
+    margin-left:100px;
+    height: 100%;
+    margin-top:0;
+}

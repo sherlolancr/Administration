@@ -1,22 +1,46 @@
-import { Component,Input, OnInit, ViewChild } from '@angular/core';
+
+import { Component,Input, OnInit, ViewChild, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
 import { Table } from '../model/table';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { Id_data } from '../model/id_data';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-table-format',
   templateUrl: './table-format.component.html',
   styleUrls: ['./table-format.component.css']
 })
-export class TableFormatComponent implements OnInit {
+export class TableFormatComponent implements OnInit, OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("test");
+    this.dataSource = this.table.getDataSource();
+    this.displayedColumns = this.table.getDisplayedColumns();
+    this.id_data = new Id_data
+  }
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
   id_data:Id_data
-  isO = false;
+  public static updateUserStatus: Subject<boolean> = new Subject();
+  
   @Input() table:Table;  
   @Input() category:String;
   @Input() oid:number;
-  constructor() { }
+
+
+
+  @Input() isOrganization :boolean;
+  @Input() isUser:boolean;
+  @Input() isEnvironment:boolean;
+  @Input() isContract:boolean;
+  @Input() isBill:boolean;
+  @Input() isRequest:boolean;
+  
+  
+  constructor() {
+    TableFormatComponent.updateUserStatus.subscribe(res => {
+      console.log("comsawewqe");
+    })
+   }
   
   ngOnInit() {
     this.dataSource = this.table.getDataSource();
@@ -25,16 +49,16 @@ export class TableFormatComponent implements OnInit {
   }
 
   @ViewChild(MatSort) sort: MatSort;
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    console.log.apply(23);
+    this.dataSource.paginator = this.paginator;
   }
 
   selectRow(row):void{
     console.log(this.category)
-    let id = row.position;
-    if(this.category == "organization"){
+    let id = row.id;
+    if(this.isOrganization){
       this.id_data.setOrganizationId(id);
       console.log(this.id_data.getOrganizationId());
 
@@ -44,9 +68,23 @@ export class TableFormatComponent implements OnInit {
       this.id_data.setEnvironmentId(id);
     }
     else if (this.category == "user"){
-      console.log(123)
       this.id_data.setUserId(id);
     }
+    else if(this.category == "request"){
+      this.id_data.setRequestId(id);
+    }
+    else if (this.category == "contract"){
+      this.id_data.setContractId(id);
+    }
+    else if (this.category == "bill"){
+      this.id_data.setBillId(id);
+    }
     this.table.selectRow(this.id_data,this.category);
+  }
+  updateTable(table:Table){
+    this.table = table;
+    this.dataSource = this.table.getDataSource();
+    this.displayedColumns = this.table.getDisplayedColumns();
+    this.id_data = new Id_data
   }
 }
