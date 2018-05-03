@@ -1,3 +1,5 @@
+import {User} from './TestData/TestData';
+import {XSRFStrategy, CookieXSRFStrategy} from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,7 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RequestsComponent } from './requests/requests.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
+import {Http,HttpModule} from '@angular/http'
 import {MatTableModule, MatSortModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserService} from './services/user.service';
@@ -35,11 +38,16 @@ import { HomeRequestComponent } from './home-request/home-request.component';
 import {MatListModule} from '@angular/material/list';
 import { RequestInformationComponent } from './request-information/request-information.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ContractInformationComponent } from './contract-information/contract-information.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { BillInformationComponent } from './bill-information/bill-information.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SafenetPolicyComponent } from './safenet-policy/safenet-policy.component';
+import { OrganizationService } from './services/organization.service';
+import { LocalStorageService, SessionStorageService, Ng2Webstorage } from 'ngx-webstorage';
+import { AccountManagerService } from './account-manager.service';
+import { UserlistService } from './services/userlist.service';
+import { EnvironmentService } from './services/environment.service';
+import { ContractService } from './services/contract.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +72,6 @@ import { SafenetPolicyComponent } from './safenet-policy/safenet-policy.componen
     DashboardComponent,
     HomeRequestComponent,
     RequestInformationComponent,
-    ContractInformationComponent,
     ContractDetailComponent,
     BillInformationComponent,
     SafenetPolicyComponent,
@@ -83,9 +90,15 @@ import { SafenetPolicyComponent } from './safenet-policy/safenet-policy.componen
     MatCheckboxModule,
     MatListModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpModule,
+
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+  providers: [UserService, OrganizationService,  LocalStorageService,
+  SessionStorageService,
+  Ng2Webstorage,
+  AccountManagerService,HttpClient, UserlistService, EnvironmentService, ContractService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -15,12 +15,12 @@
 </div>
 <div *ngIf="isEdit" class = "editPolicy">
     <ul>
-      <li><h1>Off site backup : </h1> <input class = "checkbox" type="checkbox"></li>
+      <li><h1>Off site backup : </h1> <input  class = "checkbox" type="checkbox"></li>
       <li><h1>Disaster recovery requested :</h1> <input  class = "checkbox" type="checkbox" > </li>
-      <li><h1>Nightly Backup</h1> <input  class = "inputVariable" type="text" class="form-control" ></li>
-      <li><h1>Weekly Backup</h1> <input  class = "inputVariable" type="text" class="form-control" ></li>
-      <li><h1>Monthly Backup</h1> <input class = "inputVariable" type="text" class="form-control" id="usr"></li>
-      <li><h1>Yearly Backup</h1><input  class = "inputVariable" type="text" class="form-control" id="usr"> </li>
+      <li><h1>Nightly Backup</h1> <input  value="4" class = "inputVariable" type="text" class="form-control" ></li>
+      <li><h1>Weekly Backup</h1> <input value="3" class = "inputVariable" type="text" class="form-control" ></li>
+      <li><h1>Monthly Backup</h1> <input  value="1" class = "inputVariable" type="text" class="form-control" id="usr"></li>
+      <li><h1>Yearly Backup</h1><input  value="2" class = "inputVariable" type="text" class="form-control" id="usr"> </li>
     </ul>
     <div class= "buttons">    
         <button  (click)="save()" type="button" class="btn btn-primary btn-block">Save</button>

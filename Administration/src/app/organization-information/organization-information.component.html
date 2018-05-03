@@ -32,7 +32,7 @@
             <app-environments [oid] = "organization_id" ></app-environments>
         </div>
     <div *ngIf="conditions[2]"  [@fadeInOut] class = "usersContent">
-        <app-user-list [oid] = "organization_id"></app-user-list>
+        <app-user-list [forEnvironment] = "false" [oid] = "organization_id"></app-user-list>
     </div>
     <div *ngIf="conditions[3]"  [@fadeInOut] class = "contractsContent">
         <app-contract [oid] = "organization_id"></app-contract>
@@ -41,7 +41,7 @@
         <app-bills [oid] = "organization_id"></app-bills>
     </div>
     <div *ngIf="conditions[5]"  [@fadeInOut] class = "safenetContent">
-            <app-safenet-policy [oid] = "organization_id"></app-safenet-policy>
+            <app-safenet-policy  [oid] = "organization_id"></app-safenet-policy>
     </div>
     
 

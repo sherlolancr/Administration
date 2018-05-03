@@ -16,7 +16,7 @@ import { ContractDetailComponent } from './contract-detail/contract-detail.compo
 import { BillInformationComponent } from './bill-information/bill-information.component';
 
 const routes: Routes = [
-  { path:'' ,redirectTo:'/home/organization', pathMatch: 'full'},
+  { path:'' ,redirectTo:'login', pathMatch: 'full'},
   { path: 'home', component: HomepageComponent, 
     children: [
       {path: 'users',component:UsersComponent}, 

@@ -27,7 +27,7 @@
         <app-environmen-home></app-environmen-home>
     </div>
     <div *ngIf="conditions[1]"  [@fadeInOut] class = "usersContent">
-        <app-user-list></app-user-list>
+        <app-user-list [forEnvironment] = "true" [eid]="eid"></app-user-list>
     </div>
     <div *ngIf="conditions[2]"  [@fadeInOut] class = "contractsContent">
         <app-contract-detail></app-contract-detail>

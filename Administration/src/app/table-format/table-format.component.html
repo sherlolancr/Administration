@@ -11,29 +11,26 @@
 
 
         <!-- Organization column -->
-        <ng-container *ngIf="isOrganization || isUser" matColumnDef="company_name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
-          </ng-container>
         <ng-container *ngIf="isOrganization" matColumnDef="main_account">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Main Account </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.main_account}} </mat-cell>
         </ng-container>
-        <ng-container *ngIf="isOrganization" matColumnDef="users_number">
+        <ng-container *ngIf="isOrganization" matColumnDef="number_of_user">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Number of users </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.users_number}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.number_of_user}} </mat-cell>
         </ng-container>
-        <ng-container *ngIf="isOrganization || isUser" matColumnDef="lastActivity">
+        <ng-container *ngIf="isOrganization || isUser" matColumnDef="updated_at">
               <mat-header-cell *matHeaderCellDef mat-sort-header> last Activity </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.lastActivity}} </mat-cell>
+              <mat-cell *matCellDef="let element"> {{element.updated_at}} </mat-cell>
         </ng-container>
 
 
 
           <!-- User column -->
-        <ng-container *ngIf="isUser" matColumnDef="user_name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> User name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.user_name}} </mat-cell>
+
+        <ng-container *ngIf="isUser" matColumnDef="company_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Company name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
         </ng-container>
         <ng-container *ngIf="isUser" matColumnDef="email_address">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Email address </mat-header-cell>
@@ -50,25 +47,25 @@
 
 
         <!-- Environment column -->
-        <ng-container *ngIf="isEnvironment || isContract || isBill" matColumnDef="environment_name">
+        <!--<ng-container *ngIf="isEnvironment" matColumnDef="environment_name">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Envionment name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.environment_name}} </mat-cell>
-        </ng-container>
-        <ng-container *ngIf="isEnvironment" matColumnDef="number_of_vm">
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>-->
+        <ng-container *ngIf="isEnvironment" matColumnDef="vm_count">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Number of VM </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.number_of_vm}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.vm_count}} </mat-cell>
         </ng-container>
-        <ng-container *ngIf="isEnvironment" matColumnDef="number_of_tier">
+        <ng-container *ngIf="isEnvironment" matColumnDef="tier_count">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Number of tier </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.number_of_tier}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.tier_count}} </mat-cell>
         </ng-container>
         <ng-container *ngIf="isEnvironment" matColumnDef="total_cost">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Total Cost </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.total_cost}} </mat-cell>
         </ng-container>
-        <ng-container *ngIf="isEnvironment || isContract" matColumnDef="created_time">
+        <ng-container *ngIf="isEnvironment || isContract" matColumnDef="created_at">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Contract Started </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.contract_started}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
         </ng-container>
         <ng-container *ngIf="isEnvironment || isContract" matColumnDef="contract_ended">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Contract ended </mat-header-cell>
@@ -79,6 +76,10 @@
         
         
         <!-- Contract column -->
+        <ng-container *ngIf="isContract || isBill" matColumnDef="environment_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Envionment name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.environment_name}} </mat-cell>
+        </ng-container>
         <ng-container *ngIf="isContract" matColumnDef="signed_by">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Signed By</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.signed_by}} </mat-cell>

@@ -8,15 +8,15 @@
       <div class = "filter_conditions">
           <div class = "condition" *ngFor = "let condition of conditions" >
             <h1>{{condition.title}}</h1>
-            <select class="selectpicker" >
-                <option *ngFor = "let option of condition.value">{{option}}</option>
+            <select (change)= "change_condition($event,condition)" class="selectpicker" >
+                <option #test *ngFor = "let option of condition.value">{{option}}</option>
             </select>
           </div>
             
       </div>
       <div id="custom-search-input">
         <div class="input-group col-md-12">
-          <input type="text" class="  search-query form-control" placeholder="User name" />
+          <input (keyup)="input($event)" type="text" class="  search-query form-control" placeholder="User name" />
         </div>
         
       </div>

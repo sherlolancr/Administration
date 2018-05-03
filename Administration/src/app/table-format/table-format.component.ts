@@ -12,10 +12,13 @@ import { Subject } from 'rxjs/Subject';
 })
 export class TableFormatComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("test");
-    this.dataSource = this.table.getDataSource();
-    this.displayedColumns = this.table.getDisplayedColumns();
-    this.id_data = new Id_data
+    if(this.table){
+      this.dataSource = this.table.getDataSource();
+      this.displayedColumns = this.table.getDisplayedColumns();
+      console.log(this.dataSource)
+      this.dataSource.sort = this.sort;
+      this.id_data = new Id_data
+    }
   }
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
@@ -37,30 +40,26 @@ export class TableFormatComponent implements OnInit, OnChanges {
   
   
   constructor() {
-    TableFormatComponent.updateUserStatus.subscribe(res => {
-      console.log("comsawewqe");
-    })
+
    }
   
   ngOnInit() {
-    this.dataSource = this.table.getDataSource();
+    /*this.dataSource = this.table.getDataSource();
     this.displayedColumns = this.table.getDisplayedColumns();
-    this.id_data = new Id_data
+    this.id_data = new Id_data*/
   }
 
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  ngAfterViewInit() {
+  //@ViewChild(MatPaginator) paginator: MatPaginator;
+  /*ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
+    //this.dataSource.paginator = this.paginator;
+  }*/
 
   selectRow(row):void{
-    console.log(this.category)
     let id = row.id;
     if(this.isOrganization){
       this.id_data.setOrganizationId(id);
-      console.log(this.id_data.getOrganizationId());
 
     }
     else if(this.category == "environment"){
@@ -80,11 +79,5 @@ export class TableFormatComponent implements OnInit, OnChanges {
       this.id_data.setBillId(id);
     }
     this.table.selectRow(this.id_data,this.category);
-  }
-  updateTable(table:Table){
-    this.table = table;
-    this.dataSource = this.table.getDataSource();
-    this.displayedColumns = this.table.getDisplayedColumns();
-    this.id_data = new Id_data
   }
 }

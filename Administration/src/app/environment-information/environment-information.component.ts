@@ -29,8 +29,6 @@ export class EnvironmentInformationComponent implements OnInit {
   ngOnInit() {
     this.oid = this.route.snapshot.paramMap.get('oid');
     this.eid = this.route.snapshot.paramMap.get('eid');
-    console.log(this.oid);
-    console.log(this.eid);
   }
 
   changeContent(id:number){

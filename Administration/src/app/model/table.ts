@@ -43,6 +43,7 @@ export class Table{
       this.dataSource.filter = filterValue;
     }
     public getDataSource():MatTableDataSource<any>{
+      console.log("this resource is "+ this.dataSource)
       return this.dataSource;
     }
     public getDisplayedColumns(){

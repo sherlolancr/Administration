@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {organizationData} from '../TestData/TestData';
+import { OrganizationService } from '../services/organization.service';
 @Component({
   selector: 'app-organization-home',
   templateUrl: './organization-home.component.html',
@@ -12,9 +13,11 @@ export class OrganizationHomeComponent implements OnInit {
   organization_id ;
   organization_name;
   main_account;
-  next_payment;
+  next_payment_date;
+  next_payment_amount;
   last_activity;
-
+  account_create_date;
+  address;
 
   logs = ["Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018",
   "Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"
@@ -27,12 +30,23 @@ export class OrganizationHomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private organizationService:OrganizationService,
   ) { }
   @Input() oid:number;  
   ngOnInit() {
     this.edit=false;
     this.organization_id =  this.route.snapshot.paramMap.get('oid');
-    this.allocate_variables();
+    let promise = this.organizationService.getOrganzationDetail(this.organization_id);
+    promise.then(
+      res=>{
+        let details = this.organizationService.getDetails();
+        console.log(details)
+        this.organization_name = details.name;
+        this.account_create_date = details.created_at;
+        this.main_account = details.main_account;
+        this.address = details.address;
+      }
+    )
   }
   write_note(){
     this.edit = true;

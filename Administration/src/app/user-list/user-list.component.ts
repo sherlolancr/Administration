@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Optional } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
-import { userData } from '../TestData/TestData';
+import { userData, User } from '../TestData/TestData';
+import { UserlistService } from '../services/userlist.service';
 
 @Component({
   selector: 'app-user-list',
@@ -16,13 +17,37 @@ export class UserListComponent implements OnInit {
   table : Table
 
   @Input() oid:number; 
-  
-  constructor(private router: Router){}
+  @Input() eid:number; 
+  @Input() forEnvironment:boolean; 
+  constructor(
+    private router: Router,
+    private user_list_service:UserlistService,
+    @Optional() private user_list : User[],
+  ){}
 
   ngOnInit(): void {
-    this.displayedColumns =['id', 'user_name', 'email_address', 'company_name','lastActivity','role','related_environment'];
-    this.table = new Table(userData,this.displayedColumns,this.router);
+
+    this.displayedColumns =['id', 'name', 'email_address', 'company_name','updated_at','role','related_environment'];
+    this.user_list = [];
+    let promise
+    if (this.forEnvironment){
+      promise = this.user_list_service.get_user_list(this.eid,false);
+    }
+    else{
+      promise = this.user_list_service.get_user_list(this.oid,true);
+    }
+    promise.then(
+      res=>{
+        this.table = new Table(this.user_list_service.update_list(),this.displayedColumns,this.router)
+        
+        this.dataSource = this.table.getDataSource();
+        
+      }
+    )
+    this.table = new Table([], this.displayedColumns,this.router);
+        
     this.dataSource = this.table.getDataSource();
+
   }
 
 

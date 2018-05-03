@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { MatToolbarModule,MatToolbarRow } from '@angular/material/toolbar';
 import {style, state, animate, transition, trigger} from '@angular/core';
 import { Router } from '@angular/router';
+import { OrganizationService } from '../services/organization.service';
 
 
 
@@ -22,18 +23,19 @@ import { Router } from '@angular/router';
   ]
 })
 export class OrganizationInformationComponent implements OnInit {
-  organization_id 
+  organization_id:string
 
-  conditions:boolean[] = [true,false,false,false,false,false]
+  conditions:boolean[] = [false,false,true,false,false,false]
 
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+
   ) {}
   ngOnInit() {
     this.organization_id =  this.route.snapshot.paramMap.get('oid');
-    console.log(this.organization_id);
+
   }
 
   changeContent(id:number){

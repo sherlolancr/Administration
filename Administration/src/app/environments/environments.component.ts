@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Optional } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
-import { environmentData } from '../TestData/TestData';
+import { Environment_list_element } from '../model/Environment';
+import { EnvironmentService } from '../services/environment.service';
 
 @Component({
   selector: 'app-environments',
@@ -13,13 +14,29 @@ export class EnvironmentsComponent implements OnInit {
   displayedColumns : string[]
   dataSource : MatTableDataSource<any>
   table : Table
+  @Optional() environments: Environment_list_element[];
 
   @Input() oid:number; 
-  constructor(private router: Router){}
+  constructor(
+    private router: Router,
+    private environmentServices:EnvironmentService
+  
+  ){}
 
   ngOnInit(): void {
-    this.displayedColumns = ['id', 'environment_name', 'number_of_vm', 'number_of_tier','total_cost', 'created_time','contract_ended'];
-    this.table = new Table(environmentData,this.displayedColumns,this.router);
+    this.displayedColumns = ['id', 'name', 'vm_count', 'tier_count','total_cost', 'created_at','contract_ended'];
+    let promise = this.environmentServices.getEnvironmentList(this.oid);
+    promise.then(
+      res=>{
+        
+        this.table = new Table(this.environmentServices.updateList(),this.displayedColumns,this.router)
+        
+        this.dataSource = this.table.getDataSource();
+        
+      }
+    )
+
+    this.table = new Table([],this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();
   }
 
