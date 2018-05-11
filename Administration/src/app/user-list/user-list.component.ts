@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Table } from '../model/table';
 import { Router } from '@angular/router';
 import { userData, User } from '../TestData/TestData';
-import { UserlistService } from '../services/userlist.service';
+import { UserService } from '../services/userlist.service';
 
 @Component({
   selector: 'app-user-list',
@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
   @Input() forEnvironment:boolean; 
   constructor(
     private router: Router,
-    private user_list_service:UserlistService,
+    private user_list_service:UserService,
     @Optional() private user_list : User[],
   ){}
 

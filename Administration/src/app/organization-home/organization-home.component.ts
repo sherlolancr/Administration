@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import {organizationData} from '../TestData/TestData';
 import { OrganizationService } from '../services/organization.service';
+import { LogService } from '../services/log.service';
 @Component({
   selector: 'app-organization-home',
   templateUrl: './organization-home.component.html',
@@ -19,10 +20,7 @@ export class OrganizationHomeComponent implements OnInit {
   account_create_date;
   address;
 
-  logs = ["Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018",
-  "Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"
-,"Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"
-,"Microsoft created one VM called xxx at 16th April 2018","Microsoft created one VM called xxx at 16th April 2018"]
+  logs;
 
 
 
@@ -31,6 +29,8 @@ export class OrganizationHomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private organizationService:OrganizationService,
+    private logServices:LogService,
+    private router: Router,
   ) { }
   @Input() oid:number;  
   ngOnInit() {
@@ -45,6 +45,14 @@ export class OrganizationHomeComponent implements OnInit {
         this.account_create_date = details.created_at;
         this.main_account = details.main_account;
         this.address = details.address;
+      }
+    )
+
+    let promise_log = this.logServices.get_logDetail(this.oid,'organisation');
+    promise.then(
+      res=>{
+        this.logs = this.logServices.retriveLogData();
+
       }
     )
   }
@@ -66,5 +74,12 @@ export class OrganizationHomeComponent implements OnInit {
         this.organization_name = organization.company_name;
       }
     }
+  }
+  userClick(id){
+    this.router.navigate(['userInformation/'+id]);
+  }
+
+  environmentClick(id){
+    this.router.navigate(['environmentProfile/'+id]);
   }
 }

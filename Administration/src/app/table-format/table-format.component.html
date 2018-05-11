@@ -19,9 +19,9 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> Number of users </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.number_of_user}} </mat-cell>
         </ng-container>
-        <ng-container *ngIf="isOrganization || isUser" matColumnDef="updated_at">
+        <ng-container *ngIf="isUser" matColumnDef="updated_at">
               <mat-header-cell *matHeaderCellDef mat-sort-header> last Activity </mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.updated_at}} </mat-cell>
+              <mat-cell *matCellDef="let element"> {{element.last_activity_date}} </mat-cell>
         </ng-container>
 
 
@@ -30,7 +30,7 @@
 
         <ng-container *ngIf="isUser" matColumnDef="company_name">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Company name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.company_name}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.organisation}} </mat-cell>
         </ng-container>
         <ng-container *ngIf="isUser" matColumnDef="email_address">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Email address </mat-header-cell>
@@ -76,7 +76,7 @@
         
         
         <!-- Contract column -->
-        <ng-container *ngIf="isContract || isBill" matColumnDef="environment_name">
+        <ng-container *ngIf="isContract || isBill || isRequest" matColumnDef="environment_name">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Envionment name </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.environment_name}} </mat-cell>
         </ng-container>
@@ -93,7 +93,7 @@
 
         <ng-container *ngIf="isBill" matColumnDef="payment_date">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Paid At</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.payment_date}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.paid_at}} </mat-cell>
         </ng-container>        
 
 
@@ -119,7 +119,7 @@
 
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
+        <ng-container *ngIf="!isRequest" matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>

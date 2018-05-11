@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, Optional } from '@angular/core';
 import {DataSource} from '@angular/cdk/collections'
-import {UserService} from '../services/user.service';
 import {Observable} from 'rxjs/Observable';
 //import {organizationData} from '../TestData/TestData';
 import { MatTableDataSource, MatSort } from '@angular/material';
@@ -25,15 +24,12 @@ export class OrganizationComponent implements OnInit {
 
   constructor(
   private router: Router,
-  private http:HttpClient,
-  private tokenExtractor: HttpXsrfTokenExtractor,
   private organizationService:OrganizationService,
-  private accountmanager:AccountManagerService
   ){}
 
   ngOnInit(): void {
     
-      this.displayedColumns = ['id', 'name', 'main_account', 'number_of_user' , 'updated_at'];
+      this.displayedColumns = ['id', 'name', 'main_account', 'number_of_user' ];
       let promise = this.organizationService.getOrganizations();
       promise.then(
         res=>{
@@ -42,11 +38,7 @@ export class OrganizationComponent implements OnInit {
           this.dataSource = this.table.getDataSource();
         }
       )
-//      this.table = new Table([], this.displayedColumns,this.router);
-          
-  //    this.dataSource = this.table.getDataSource();
-  
-    
+
   }
 
 

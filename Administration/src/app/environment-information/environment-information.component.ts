@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {style, state, animate, transition, trigger} from '@angular/core';
 import {Location} from '@angular/common';
+import { EnvironmentService } from '../services/environment.service';
 @Component({
   selector: 'app-environment-information',
   templateUrl: './environment-information.component.html',
@@ -24,11 +25,13 @@ export class EnvironmentInformationComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private _location: Location
+    private _location: Location,
+
   ) {}
   ngOnInit() {
     this.oid = this.route.snapshot.paramMap.get('oid');
     this.eid = this.route.snapshot.paramMap.get('eid');
+
   }
 
   changeContent(id:number){

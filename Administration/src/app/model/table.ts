@@ -21,13 +21,20 @@ export class Table{
         else if(category == "environment"){
           let eid = id_data.getEnvironmentId();
           let oid = id_data.getOrganizationId();
-          this.router.navigate(['environmentProfile/'+oid+'/'+eid]);
+          this.router.navigate(['environmentProfile/'+eid]);
         }
         else if (category == "user"){
           this.router.navigate(['userInformation/'+id_data.getUserId()]);
         }
         else if (category == "request"){
-          this.router.navigate(['requestInformation/'+id_data.getRequestId()]);
+          let request_type = id_data.request_type
+          if(request_type == "contract"){
+            this.router.navigate(['contractRequestInformation/'+id_data.getRequestId()]);
+          }
+          else{
+            this.router.navigate(['requestInformation/'+id_data.getRequestId()]);
+          }
+          
         }
         else if (category == "contract"){
           this.router.navigate(['contractInformation/'+id_data.getContractId()]);

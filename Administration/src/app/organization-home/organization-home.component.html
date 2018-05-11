@@ -8,14 +8,10 @@
           <dl>
               <dt>Main Account :</dt>
               <dd>{{main_account}}</dd>
-              <dt>Next Payment Date :</dt>
-              <dd>{{next_payment_date}}</dd>
-              <dt>Next Payment Amout :</dt>
-              <dd>{{next_payment_amount}}</dd>
+
               <dt>Account Create Date :</dt>
               <dd>{{account_create_date}}</dd>
-              <dt>Last Activity :</dt>
-              <dd>{{last_activity}}</dd>
+
               <dt>Company Address: </dt>
               <dd>{{address}}</dd>
             </dl>
@@ -52,8 +48,11 @@
         <div class = "log_content">
           <ul class="log_list">
             <li *ngFor="let log of logs">
-                {{ log }}
-            </li>
+                <div class = "description">
+                    <b (click)="userClick(log.user_id)">{{log.user}}</b> {{log.description}} on <b (click) = "environmentClick(log.environment_id)">{{log.environment}}</b> 
+                </div>
+                <div class = "time">{{log.created_at}}</div>
+              </li>
           </ul>
         </div>
 

@@ -5,7 +5,9 @@ export class User {
     private email_address:string,
     private role:string,
     private status:number,
-    private updated_at:string,
+    private last_activity_date:string,
+    private organisation:string,
+    private related_environment:string,
   ){
 
   }

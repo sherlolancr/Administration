@@ -1,21 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
-import { requestData } from '../TestData/TestData';
+import { ActivatedRoute } from '@angular/router';
 import { RequestService } from '../services/request.service';
-
+import {Location} from '@angular/common';
 @Component({
-  selector: 'app-request-information',
-  templateUrl: './request-information.component.html',
-  styleUrls: ['./request-information.component.css']
+  selector: 'app-contract-request-information',
+  templateUrl: './contract-request-information.component.html',
+  styleUrls: ['./contract-request-information.component.css']
 })
-export class RequestInformationComponent implements OnInit {
+export class ContractRequestInformationComponent implements OnInit {
 
   total_cost: any;
   environment: any;
   requestStatus: string;
   requestFrom:string
-  requestId;
+  contractId;
   vm_breakdown=[];
 
 
@@ -32,7 +30,7 @@ export class RequestInformationComponent implements OnInit {
   ngOnInit() {
     this.unread = true;
     this.requestFrom = "Simon@Microsoft.com"
-    this.requestId  =  this.route.snapshot.paramMap.get('rid');
+    this.contractId  =  this.route.snapshot.paramMap.get('cid');
     this.getVariables();
   }
   back(){
@@ -41,13 +39,13 @@ export class RequestInformationComponent implements OnInit {
   }
 
   getVariables(){
-    let promise = this.requestService.get_request_information(this.requestId);
+    let promise = this.requestService.get_contract_request_information(this.contractId);
     promise.then(
       res=>{
-        let details = this.requestService.updateInformation();
+        let details = this.requestService.updateContractRequestInformation();
         console.log(details)
         this.requestFrom = details.user_email;
-        this.requestId = details.product_number
+        this.contractId = details.product_number
         this.environment = details.environment_name;
         this.total_cost = details.total_cost;
         if(details.status == 1){
@@ -59,16 +57,15 @@ export class RequestInformationComponent implements OnInit {
         else if (details.status == 3){
           this.requestStatus = "pending"
         }
-        console.log(details)
         for (let v of details.vm_list){
-          
+          console.log(v)
           if(v){
             this.vm_breakdown.push(v)
           }
         }
+        console.log(this.vm_breakdown)
       }
     )
 
   }
-
 }

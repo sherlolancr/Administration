@@ -11,21 +11,21 @@
     </div>
     <div *ngIf = "changeRequestSelected && ! searchSelected"  class = "requestList">
         <div class = "list">
-            <app-table-format [table]="table" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
-        </div>  
+            <app-table-format [table]="changeRequest_table" [requestType]="'cr'" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
+        </div>  [requestType] = "cr" 
         
     </div>
     <div *ngIf = "!changeRequestSelected && !searchSelected"  class = "requestList">
         <div class = "list">
-            <app-table-format [table]="contractTable" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
+            <app-table-format [table]="contractTable"  [requestType]="'contract'" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
         </div>  
     </div>
     <div *ngIf = "searchSelected"  class = "searchByPo">
         <div class="row">
             <div class = "filter_conditions">
-                <div class = "condition" *ngFor = "let condition of conditions" >
+                <div class = "condition"  *ngFor = "let condition of conditions" >
                     <h1>{{condition.title}}</h1>
-                    <select class="selectpicker" >
+                    <select (change)= "change_condition($event,condition)" class="selectpicker" >
                         <option *ngFor = "let option of condition.value">{{option}}</option>
                     </select>
                 </div>
@@ -33,14 +33,20 @@
             </div>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                <input type="text" class="  search-query form-control" placeholder="Product Order Id" />
+                <input (keyup)="input($event)" type="text" class="  search-query form-control" placeholder="Product Order Id" />
+
                 </div>
                 
             </div>
             <button (click) = "search()" type="button" class="btn btn-primary btn-block">Search</button>
         </div>
         <div *ngIf = "serach_submitted" class = "list">
-                <app-table-format [table]="contractTable" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
+                <div *ngIf = "chosen_condition.Type == 'contract'">
+                    <app-table-format [table]="search_table"  [requestType]="'contract'" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
+                </div>
+                <div *ngIf = "chosen_condition.Type == 'cr'">
+                        <app-table-format [table]="search_table"  [requestType]="'cr'" [isRequest]="true" [category]="'request'"  class="table_content"></app-table-format>
+                </div>
         </div>  
     </div>
   </div>

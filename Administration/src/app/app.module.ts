@@ -17,7 +17,6 @@ import {HttpClientModule, HttpClient, HttpHandler, HttpHeaders} from '@angular/c
 import {Http,HttpModule} from '@angular/http'
 import {MatTableModule, MatSortModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {UserService} from './services/user.service';
 import { OrganizationInformationComponent } from './organization-information/organization-information.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -45,9 +44,13 @@ import { SafenetPolicyComponent } from './safenet-policy/safenet-policy.componen
 import { OrganizationService } from './services/organization.service';
 import { LocalStorageService, SessionStorageService, Ng2Webstorage } from 'ngx-webstorage';
 import { AccountManagerService } from './account-manager.service';
-import { UserlistService } from './services/userlist.service';
+import { UserService } from './services/userlist.service';
 import { EnvironmentService } from './services/environment.service';
 import { ContractService } from './services/contract.service';
+import { RequestService } from './services/request.service';
+import { LogService } from './services/log.service';
+import { BillsService } from './services/bills.service';
+import { ContractRequestInformationComponent } from './contract-request-information/contract-request-information.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,7 @@ import { ContractService } from './services/contract.service';
     ContractDetailComponent,
     BillInformationComponent,
     SafenetPolicyComponent,
+    ContractRequestInformationComponent,
   ],
   imports: [
     MatTableModule,
@@ -97,7 +101,9 @@ import { ContractService } from './services/contract.service';
   providers: [UserService, OrganizationService,  LocalStorageService,
   SessionStorageService,
   Ng2Webstorage,
-  AccountManagerService,HttpClient, UserlistService, EnvironmentService, ContractService
+  AccountManagerService,HttpClient, UserService, EnvironmentService, ContractService,RequestService,LogService,
+  BillsService
+  
   ],
   bootstrap: [AppComponent],
 })

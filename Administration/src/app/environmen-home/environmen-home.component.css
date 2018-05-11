@@ -1,5 +1,6 @@
 .wrap{
     height: 100vh;
+    overflow: auto;
 }
 .description{
     float: left;
@@ -163,11 +164,30 @@
 .log_content ul li{
     font-size:1.4em;
     font-family: "Times New Roman", Times, serif;
-    padding-top:5px;
+    height: 10%;
 }
 .buttons button{
     width: 50%;
     height: 50px;
     margin-top:150px;
     margin-left:150px;
+}
+.log_content b{
+    cursor: pointer;
+}
+.description{
+    padding-top:5px;
+    padding-bottom:20px;
+    float: left;
+    height: 100%;
+    width: 70%;
+}
+.time{
+    margin-top:5px;
+    margin-bottom:20px;
+    float: right;
+    height: 100%;
+    text-align: right;
+    padding-right:3%;
+    width: 30%;
 }

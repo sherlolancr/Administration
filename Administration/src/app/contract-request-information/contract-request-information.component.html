@@ -60,21 +60,29 @@
               <div class = "list_item" *ngFor="let vm of vm_breakdown">
                   <div class = "vm_basic">
                     <img src="../../assets/images/vm/windows.svg">
-                    <h4 mat-line>{{vm.vm_name}}</h4>
+                    <h4 >{{vm.vm_name}}</h4>
                     <h5>£{{vm.cost}}</h5>
                   </div>
                   <div class = "vm_details">
                     <div class = "cpu">
                         <header>Cpu:</header>
-                        <h4>Before:{{vm.CPU_breakdown.before}} ghz <br>After: {{vm.CPU_breakdown.after}} ghz     <br>Cost: £{{vm.CPU_breakdown.cost}} </h4>
+                        <h4>Size:{{vm.CPU_breakdown.size}}  ghz     <br>Cost: £{{vm.CPU_breakdown.cost}} </h4>
                       </div>
                     <div class = "ram">
                       <header>Ram:</header>
-                      <h4>Before:{{vm.RAM_breakdown.before}} GB <br>After: {{vm.RAM_breakdown.after}} GB     <br>Cost: £{{vm.RAM_breakdown.cost}} </h4>
+                      <h4>Size:{{vm.RAM_breakdown.size}} GB     <br>Cost: £{{vm.RAM_breakdown.cost}} </h4>
                     </div>
                     <div class = "hdd">
                       <header>{{vm.HDD_breakdown.name}}:</header>
-                      <h4>Before:{{vm.HDD_breakdown.before}} GB <br>After: {{vm.HDD_breakdown.after}} GB     <br>Cost: £{{vm.HDD_breakdown.cost}} </h4>
+                      <h4>Size:{{vm.HDD_breakdown.size}} GB     <br>Cost: £{{vm.HDD_breakdown.cost}} </h4>
+                    </div>
+                    <div class = "management">
+                      <header>Management:</header>
+                      <h4>Size:{{vm.HDD_breakdown.size}} GB     <br>Cost: £{{vm.HDD_breakdown.cost}} </h4>
+                    </div>
+                    <div class = "os">
+                      <header>Operation_System:</header>
+                      <h4>Size:{{vm.HDD_breakdown.size}} GB     <br>Cost: £{{vm.HDD_breakdown.cost}} </h4>
                     </div>
                   </div>
               </div>

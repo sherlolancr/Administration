@@ -4,7 +4,7 @@ import { Table } from '../model/table';
 import { Router } from '@angular/router';
 import { userData,userDataTest } from '../TestData/TestData';
 import { TableFormatComponent } from '../table-format/table-format.component';
-import { UserlistService } from '../services/userlist.service';
+import { UserService } from '../services/userlist.service';
 import { User } from '../model/User';
 
 @Component({
@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private user_list_service:UserlistService,
+    private user_list_service:UserService,
     @Optional() private user_list : User[],
   
   
@@ -48,8 +48,7 @@ export class UsersComponent implements OnInit {
 
     this.chosen_condition["name"] = this.searchName;
 
-    console.log(this.chosen_condition)
-    this.user_list = [];
+
     let promise = this.user_list_service.get_user_by_condition(this.chosen_condition);
     promise.then(
       res=>{

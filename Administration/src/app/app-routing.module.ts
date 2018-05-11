@@ -14,6 +14,7 @@ import { HomeRequestComponent } from './home-request/home-request.component';
 import { RequestInformationComponent } from './request-information/request-information.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { BillInformationComponent } from './bill-information/bill-information.component';
+import { ContractRequestInformationComponent } from './contract-request-information/contract-request-information.component';
 
 const routes: Routes = [
   { path:'' ,redirectTo:'login', pathMatch: 'full'},
@@ -38,9 +39,15 @@ const routes: Routes = [
     
   ]
 },
-  {path:'environmentProfile/:oid/:eid', component: EnvironmentInformationComponent, 
+  {path:'contractRequestInformation/:cid', component: ContractRequestInformationComponent, 
   children: [
-    {path: '#',redirectTo:'environmentProfile/:oid/:eid'}, 
+    {path: '#',redirectTo:'requestInformation/:cid'}, 
+    
+  ]
+},
+  {path:'environmentProfile/:eid', component: EnvironmentInformationComponent, 
+  children: [
+    {path: '#',redirectTo:'environmentProfile/:eid'}, 
     
   ]
 },

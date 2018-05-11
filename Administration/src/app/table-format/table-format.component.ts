@@ -28,7 +28,7 @@ export class TableFormatComponent implements OnInit, OnChanges {
   @Input() table:Table;  
   @Input() category:String;
   @Input() oid:number;
-
+  @Input() requestType:string;
 
 
   @Input() isOrganization :boolean;
@@ -47,6 +47,7 @@ export class TableFormatComponent implements OnInit, OnChanges {
     /*this.dataSource = this.table.getDataSource();
     this.displayedColumns = this.table.getDisplayedColumns();
     this.id_data = new Id_data*/
+    
   }
 
   @ViewChild(MatSort) sort: MatSort;
@@ -58,6 +59,7 @@ export class TableFormatComponent implements OnInit, OnChanges {
 
   selectRow(row):void{
     let id = row.id;
+    console.log(this.requestType)
     if(this.isOrganization){
       this.id_data.setOrganizationId(id);
 
@@ -70,7 +72,9 @@ export class TableFormatComponent implements OnInit, OnChanges {
       this.id_data.setUserId(id);
     }
     else if(this.category == "request"){
+      console.log(this.requestType)
       this.id_data.setRequestId(id);
+      this.id_data.setReqeustType(this.requestType)
     }
     else if (this.category == "contract"){
       this.id_data.setContractId(id);

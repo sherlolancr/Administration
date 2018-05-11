@@ -3,14 +3,17 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../model/User';
 import { LocalStorageService } from 'ngx-webstorage';
 import { AccountManagerService } from '../account-manager.service';
+import { Environment_list_element } from '../model/Environment';
 
 @Injectable()
-export class UserlistService {
+export class UserService {
+  user_detial: any;
   _headers
   headers
   constructor(
     private http : HttpClient,
     @Optional() private user_list: User[],
+    @Optional() private environment_list: Environment_list_element[],
     private localStorage:LocalStorageService,
     private acc_manager:AccountManagerService,
   ) {
@@ -44,8 +47,17 @@ export class UserlistService {
             else{
                 user_role = element.role.name
             }
-
-            this.user_list.push(new User(element.id,element.name,element.email,user_role,element.status,element.updated_at))
+            let last_activity_date;
+            if(element.last_activity_date[0] != null){
+              
+              last_activity_date = (element.last_activity_date)[0].created_at;
+            }
+            console.log(element)
+            let company_name;
+            if(!isOrganisation){
+              company_name = element.organisation.name
+            }
+            this.user_list.push(new User(element.id,element.name,element.email,user_role,element.status,last_activity_date,company_name,element.environments_count))
           }
           //this.user_list = res.data.users;
           resolve();
@@ -69,10 +81,13 @@ export class UserlistService {
 
     let promise = new Promise((resolve,reject)=>{
       
-      this.http.get<any>("http://homestead.test/api/user/get-user",{headers:this.headers, params: new HttpParams().set('name',condition.name)
+      this.http.get<any>("http://homestead.test/api/user/get-users",{headers:this.headers, params: new HttpParams().set('name',condition.name)
       .set("last_activity",condition.active_date).set("role",condition.role).set("environment_related",condition.Environmen_Related) }
     ).toPromise().then( 
         res=>{
+          if(res.result != 'success'){
+            alert("something went wrong");
+          }
           console.log(res);
           for (let element of res.data.users){
             let user_role;
@@ -80,11 +95,59 @@ export class UserlistService {
             if(element.roles.length>0){
                 user_role = element.roles[0].name
             }
+            let last_activity_date;
+            if(element.last_activity_date[0] != null){
+              last_activity_date = (element.last_activity_date)[0].created_at;
+            }
             
-            
-            this.user_list.push(new User(element.id,element.name,element.email,user_role,element.status,element.updated_at))
+            this.user_list.push(new User(element.id,element.name,element.email,user_role,element.status,last_activity_date,"",element.environments_count))
           }
           //this.user_list = res.data.users;
+          resolve();
+        },
+        msg=>{
+          reject();
+        }
+      )
+      
+    });
+    return promise;
+  }
+  get_single_user(id){
+    let promise = new Promise((resolve,reject)=>{
+      this.http.get<any>("http://homestead.test/api/admin/user/"+id,{headers:this.headers}).toPromise().then(
+        res=>{
+          if(res.result != 'success'){
+            alert("something went wrong");
+          }
+          this.user_detial = res.data.users;
+          console.log(res.data.users)
+          resolve();
+        },
+        msg=>{
+          reject();
+        }
+      )
+      
+    });
+    //.subscribe(data=>{
+    //  this.posts = data;
+    //  console.log(this.posts + ' this posts');});
+    return promise;
+  }
+  getEnvironmentList(uid){
+    this.environment_list = []
+    let promise = new Promise((resolve,reject)=>{
+      this.http.get<any>("http://homestead.test/api/admin/user/getEnvironment/"+uid,{headers:this.headers}).toPromise().then(
+        res=>{
+          if(res.result != 'success'){
+            alert("something went wrong");
+          }
+          console.log(res.data)
+          for (let element of res.data){
+            this.environment_list.push(new Environment_list_element(element.id,element.name,element.vm_count,element.tier_count,element.total_cost,element.created_at))
+          }
+          this.environment_list = res.data;
           resolve();
         },
         msg=>{
@@ -100,5 +163,11 @@ export class UserlistService {
   }
   update_list(){
     return this.user_list;
+  }
+  update_environment_list(){
+    return this.environment_list;
+  }
+  get_user_detail(){
+    return this.user_detial
   }
 }

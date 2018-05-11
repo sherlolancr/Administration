@@ -27,6 +27,9 @@ export class OrganizationService {
       this.http.get<any>("http://homestead.test/api/organisation/get-all-organizations",{headers:this.headers}).toPromise().then(
         res=>{
           console.log(res);
+          if(res.result != 'success'){
+            alert("something went wrong");
+          }
           for (let element of res.data){
             let main_account;
             if(element.users.length>0){
@@ -58,6 +61,9 @@ export class OrganizationService {
     let promise = new Promise((resolve,reject)=>{
       this.http.get<any>("http://homestead.test/api/organisation/"+id+"/get-organisation-detail",{headers:this.headers}).toPromise().then(
         res=>{
+          if(res.result != 'success'){
+            alert("something went wrong");
+          }
           this.organizationDetail = res.data;
           resolve();
         },

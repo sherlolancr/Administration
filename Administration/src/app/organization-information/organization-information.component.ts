@@ -25,7 +25,7 @@ import { OrganizationService } from '../services/organization.service';
 export class OrganizationInformationComponent implements OnInit {
   organization_id:string
 
-  conditions:boolean[] = [false,false,true,false,false,false]
+  conditions:boolean[] = [true,false,false,false,false,false]
 
 
   constructor(

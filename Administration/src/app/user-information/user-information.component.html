@@ -14,11 +14,11 @@
               <dt>organization :</dt>
               <dd>{{organization}}</dd>
               <dt>Is main account of organization :</dt>
-              <dd>No</dd>
+              <dd>{{isMainAccount}}</dd>
               <dt>Number of environment it related to :</dt>
               <dd>{{envrionment_number}}</dd>
               <dt>Account Create Date :</dt>
-              <dd>16th April 2014</dd>
+              <dd>{{created_at}}</dd>
               <dt>Last Activity :</dt>
               <dd>{{last_activity}}</dd>
             </dl>
@@ -65,7 +65,10 @@
         <div class = "log_content">
           <ul class="log_list">
             <li *ngFor="let log of logs">
-                {{ log }}
+                <div class = "description">
+                    <b >{{log.user}}</b> {{log.description}} on <b (click) = "environmentClick(log.environment_id)">{{log.environment}}</b>
+                </div>
+                <div class = "time">{{log.created_at}}</div>
             </li>
           </ul>
         </div>

@@ -1,21 +1,21 @@
 <div class = "wrap">
   <div class = "description">
     <div class = "company_name">
-      <h1>Front End</h1>
+      <h1>{{name}}</h1>
     </div>
     <div class = "main_content">
       <div class = "company_information">
           <dl>
               <dt>Number of vms :</dt>
-              <dd>13</dd>
+              <dd>{{vm_count}}</dd>
               <dt>Number of Tiers :</dt>
-              <dd>3</dd>
+              <dd>{{tier_count}}</dd>
               <dt>Number of Users :</dt>
-              <dd>4</dd>
+              <dd>{{user_count}}</dd>
               <dt>Total Cost :</dt>
-              <dd>£3000</dd>
+              <dd>{{total_cost}}</dd>
               <dt>Created at :</dt>
-              <dd>16th April 2017</dd>
+              <dd>{{created_at}}</dd>
               <dt>Contract ended at : </dt>
               <dd>16th April 2018</dd>
             </dl>
@@ -31,7 +31,10 @@
         <div class = "log_content">
           <ul class="log_list">
             <li *ngFor="let log of logs">
-                {{ log }}
+                <div class = "description">
+                    <b (click)="userClick(log.user_id)">{{log.user}}</b> {{log.description}} on <b>{{log.environment}}</b>
+                </div>
+                <div class = "time">{{log.created_at}}</div>
             </li>
           </ul>
         </div>

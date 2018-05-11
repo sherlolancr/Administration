@@ -68,6 +68,7 @@ li, li:hover, li:focus {
     font-size: 1.2em;
     display: block;
     text-align: left;
+    cursor: pointer;
 }
 #sidebar ul li:hover {
     color: #1f3e69;
@@ -77,24 +78,29 @@ li, li:hover, li:focus {
 .profileContent{
     height: 100%;
     width:100% ;
+    overflow: auto;
 }
 .usersContent{
     display: block;
     min-height: 100vh;
     width:100% ;
+    overflow: auto;
 }
 .contractsContent{
     height: 100%;
     width:100% ;
+    overflow: auto;
 }
 
 .requestContent{
     height: 100%;
     width:100% ;
+    overflow: auto;
 }
 .environmentContent{
     height: 100%;
     width:100% ;
+    overflow: auto;
 }
 .logContent{
     height: 100%;
@@ -106,5 +112,6 @@ li, li:hover, li:focus {
     margin-top:-30px;
 }
 .back{
-    background: rgb(98, 98, 102)
+    background: rgb(98, 98, 102);
+    cursor: pointer;
 }

@@ -10,4 +10,17 @@ export class Environment_list_element {
     ){
 
     }
+
+  
   }
+
+export interface Environment_detail{
+  id:number;
+  name:string;
+  ended_at:string;
+  created_at:string;
+  vm_count:number,
+  tier_count:number,
+  user_count:number,
+  total_cost:string,
+}

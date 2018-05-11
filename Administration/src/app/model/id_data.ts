@@ -6,7 +6,7 @@ export class Id_data{
     requests_id:number;
     bill_id:number;
     contract_id:number; 
-
+    request_type:string;
     constructor(){}
     getOrganizationId(){
        return this.organization_id;
@@ -46,5 +46,8 @@ export class Id_data{
     }
     setContractId(id:number){
         this.contract_id = id;
+    }
+    setReqeustType(type:string){
+        this.request_type = type;
     }
 }

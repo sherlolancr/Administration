@@ -32,14 +32,12 @@ export class ContractComponent implements OnInit {
       res=>{
         
         this.table = new Table(this.contract_list_service.update_list(),this.displayedColumns,this.router)
-        
+      
         this.dataSource = this.table.getDataSource();
         
       }
     )
-    this.table = new Table([], this.displayedColumns,this.router);
-        
-    this.dataSource = this.table.getDataSource();
+
 
     this.table = new Table([],this.displayedColumns,this.router);
     this.dataSource = this.table.getDataSource();

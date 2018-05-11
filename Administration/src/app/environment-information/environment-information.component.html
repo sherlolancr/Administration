@@ -24,13 +24,13 @@
 
     </nav>
     <div *ngIf="conditions[0]"   [@fadeInOut]  class = "profileContent">
-        <app-environmen-home></app-environmen-home>
+        <app-environmen-home ></app-environmen-home>
     </div>
     <div *ngIf="conditions[1]"  [@fadeInOut] class = "usersContent">
         <app-user-list [forEnvironment] = "true" [eid]="eid"></app-user-list>
     </div>
     <div *ngIf="conditions[2]"  [@fadeInOut] class = "contractsContent">
-        <app-contract-detail></app-contract-detail>
+        <app-contract-detail [eid]="eid"></app-contract-detail>
     </div>
 
 
